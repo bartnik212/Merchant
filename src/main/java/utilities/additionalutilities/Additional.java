@@ -21,11 +21,6 @@ public class Additional {
     private final String red = colorText.RED;
     private final String textReset = colorText.TEXTRESET;
 
-    public String nameOfPlayer(String name) {
-        Player player = new Player();
-        player.setName(name);
-        return player.getName();
-    }
 
     public void chooseCity() throws InterruptedException {
         System.out.println("Here you have a list of cities where you can go :" + Arrays.toString(City.values()));
