@@ -34,7 +34,7 @@ public class IronMerchant {
 
             String answer = scanner.nextLine();
 
-            if (answer.toUpperCase().equals("Y")) {
+            if (answer.toUpperCase().equalsIgnoreCase("y")) {
                 player.getListOfGoods().remove(Goods.valueOf("IRON"));
                 player.setCoins(player.getCoins() + 10);
 

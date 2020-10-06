@@ -38,7 +38,7 @@ public class WoodMerchant {
 
             String answer = scanner.nextLine();
 
-            if (answer.toUpperCase().equals("Y")) {
+            if (answer.toUpperCase().equalsIgnoreCase("y")) {
                 player.getListOfGoods().remove(Goods.valueOf("WOOD"));
                 player.setCoins(player.getCoins() + 10);
 

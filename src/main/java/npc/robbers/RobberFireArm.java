@@ -34,7 +34,7 @@ public class RobberFireArm implements ICombatStyle {
         String answer = scanner.nextLine();
 
 
-        if (answer.equals("m")) {
+        if (answer.equalsIgnoreCase("m")) {
             coins.clearCoins();
         } else {
             RobberFireArm rfa = new RobberFireArm();

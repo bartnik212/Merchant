@@ -39,11 +39,11 @@ public class IronWorksWorkerTwoHandedSword implements ICombatStyle {
         System.out.println("*Now you have 2 choices: fight him or leave. [f/l]*\n");
 
         String answer = scanner.nextLine();
-        if (answer.equals("l")) {
+        if (answer.equalsIgnoreCase("l")) {
             System.out.println("*You leave the ironworks*\n");
 
 
-        } else if (answer.equals("f")) {
+        } else if (answer.equalsIgnoreCase("f")) {
             IronWorksWorkerTwoHandedSword iwet = new IronWorksWorkerTwoHandedSword();
             iwet.fight();
         }

@@ -33,7 +33,7 @@ public class RobberTwoHandedSword implements ICombatStyle {
 
         System.out.println("*Your weapon is: " + player.getListOfWeapon() + "*");
 
-        if (answer.equals("m")) {
+        if (answer.equalsIgnoreCase("m")) {
             coins.clearCoins();
         } else {
             RobberTwoHandedSword rths = new RobberTwoHandedSword();

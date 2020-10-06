@@ -39,10 +39,10 @@ public class SamwillWorkerSwordShield implements ICombatStyle {
         System.out.println("*What do you do? You fight or leave? [f/l]");
 
         String answer = scanner.nextLine();
-        if (answer.equals("l")) {
+        if (answer.equalsIgnoreCase("l")) {
             System.out.println("*You run away and go back to the city*\n");
 
-        } else if (answer.equals("f")) {
+        } else if (answer.equalsIgnoreCase("f")) {
             SamwillWorkerSwordShield samwillWorkerSwordShield = new SamwillWorkerSwordShield();
             samwillWorkerSwordShield.fight();
         }

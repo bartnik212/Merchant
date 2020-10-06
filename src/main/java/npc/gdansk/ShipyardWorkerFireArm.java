@@ -42,13 +42,13 @@ public class ShipyardWorkerFireArm implements ICombatStyle {
                 "It's prohibited to enter here. " +
                 "You have to leave this place right now!\n" + textreset);
 
-        System.out.println("*What are you going to do? Fight or leave?* [f/l]\n");
+        System.out.println("*What are you going to do? Fight or leave?* [F/L]\n");
 
         String answer = scanner.nextLine();
-        if (answer.equals("l")) {
+        if (answer.equalsIgnoreCase("l")) {
             System.out.println("*You leave the shipyard*");
 
-        } else if (answer.equals("f")) {
+        } else if (answer.equalsIgnoreCase("f")) {
             ShipyardWorkerFireArm ses = new ShipyardWorkerFireArm();
             ses.fight();
         }

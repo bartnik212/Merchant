@@ -34,7 +34,7 @@ public class MetalMerchant {
 
             String answer = scanner.nextLine();
 
-            if (answer.toUpperCase().equals("Y")) {
+            if (answer.toUpperCase().equalsIgnoreCase("y")) {
                 player.getListOfGoods().remove(Goods.valueOf("METAL"));
                 player.setCoins(player.getCoins() + 10);
 

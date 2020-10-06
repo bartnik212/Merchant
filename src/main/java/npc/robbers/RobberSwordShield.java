@@ -34,7 +34,7 @@ public class RobberSwordShield implements ICombatStyle {
 
         System.out.println("*Your weapon is: " + player.getListOfWeapon() + "*");
 
-        if (answer.equals("m")) {
+        if (answer.equalsIgnoreCase("m")) {
             coins.clearCoins();
         } else {
             RobberSwordShield rss = new RobberSwordShield();
