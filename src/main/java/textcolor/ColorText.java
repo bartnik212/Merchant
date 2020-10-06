@@ -7,8 +7,6 @@ public class ColorText {
     public final String GREEN = "\u001B[32m";
     public final String YELLOW = "\u001B[33m";
     public final String BLUE = "\u001B[34m";
-
-
-
+    public final String WHITE = "\u001B[30m";
 
 }

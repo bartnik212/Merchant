@@ -8,6 +8,7 @@ import model.Player;
 import placesandcities.zakopane.Zakopane;
 import textcolor.ColorText;
 
+import java.io.FileNotFoundException;
 import java.util.Arrays;
 
 import java.util.Scanner;
@@ -22,7 +23,7 @@ public class Additional {
     private final String textReset = colorText.TEXTRESET;
 
 
-    public void chooseCity() throws InterruptedException {
+    public void chooseCity() throws InterruptedException, FileNotFoundException {
         System.out.println("Here you have a list of cities where you can go :" + Arrays.toString(City.values()));
 
         Scanner scanner = new Scanner(System.in);
@@ -96,7 +97,7 @@ public class Additional {
         }
     }
 
-    public void ifEnoughMoneyChangeCity() throws InterruptedException {
+    public void ifEnoughMoneyChangeCity() throws InterruptedException, FileNotFoundException {
 
         Additional additional = new Additional();
 

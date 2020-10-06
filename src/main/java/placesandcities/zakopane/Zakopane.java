@@ -11,6 +11,7 @@ import randomevent.RandomEvent;
 import utilities.weaponutilities.WeaponUtilities;
 import textcolor.ColorText;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Zakopane implements ICitiesActions, ICitiesChecker {
@@ -29,7 +30,7 @@ public class Zakopane implements ICitiesActions, ICitiesChecker {
 
 
     @Override
-    public void cityAction() throws InterruptedException {
+    public void cityAction() throws InterruptedException, FileNotFoundException {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("You are in the mountains!\n" +

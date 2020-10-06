@@ -34,7 +34,7 @@ public class DialogsUtilities {
         } else if (color.equalsIgnoreCase("red")) {
             chosenColor = colorText.RED;
         } else {
-            chosenColor = null;
+            chosenColor = colorText.WHITE;
         }
         return chosenColor;
     }
