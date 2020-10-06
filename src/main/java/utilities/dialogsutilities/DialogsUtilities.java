@@ -8,16 +8,35 @@ import java.util.Scanner;
 
 public class DialogsUtilities {
 
-    public void printGreenDialog(String path) throws FileNotFoundException {
-        ColorText colorText = new ColorText();
+    private static final ColorText colorText = new ColorText();
+
+
+    public void printDialog(String path, String color) throws FileNotFoundException {
+        String chosenColor = chooseColor(color);
 
         File file = new File(path);
         Scanner inputfile = new Scanner(file);
 
         while (inputfile.hasNext()) {
-            System.out.println(colorText.GREEN + inputfile.nextLine() + colorText.TEXTRESET);
+            System.out.println(chosenColor + inputfile.nextLine() + colorText.TEXTRESET);
         }
-
         inputfile.close();
+
+    }
+
+    private String chooseColor(String color) {
+        String chosenColor;
+
+        if (color.equalsIgnoreCase("green")) {
+            chosenColor = colorText.GREEN;
+        } else if (color.equalsIgnoreCase("yellow")) {
+            chosenColor = colorText.YELLOW;
+        } else if (color.equalsIgnoreCase("red")) {
+            chosenColor = colorText.RED;
+        } else {
+            chosenColor = null;
+        }
+        return chosenColor;
     }
 }
+

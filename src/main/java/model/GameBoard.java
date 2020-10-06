@@ -21,29 +21,29 @@ public class GameBoard {
         WeaponUtilities weapon = new WeaponUtilities();
         DialogsUtilities dialogsUtilities = new DialogsUtilities();
 
-        dialogsUtilities.printGreenDialog("src/main/resources/initialdialogs/Initial Dialog1.txt");
+        dialogsUtilities.printDialog("src/main/resources/initialdialogs/Initial Dialog1.txt", "green");
 
         String name = scanner.nextLine();
         player.setName(name);
         health.fillHealthPoints();
 
         //WROC DO TEGO
-        dialogsUtilities.printGreenDialog("src/main/resources/initialdialogs/Hello.txt");
+        dialogsUtilities.printDialog("src/main/resources/initialdialogs/Hello.txt", "green");
         System.out.println(player.getName());
 
-        dialogsUtilities.printGreenDialog("src/main/resources/initialdialogs/Initial Dialog2.txt");
+        dialogsUtilities.printDialog("src/main/resources/initialdialogs/Initial Dialog2.txt", "green");
         goods.chooseFirstGood();
 
-        dialogsUtilities.printGreenDialog("src/main/resources/initialdialogs/Initial Dialog3.txt");
+        dialogsUtilities.printDialog("src/main/resources/initialdialogs/Initial Dialog3.txt", "green");
         System.out.println(player.getListOfGoods().toString());
 
-        dialogsUtilities.printGreenDialog("src/main/resources/initialdialogs/Initial Dialog4.txt");
+        dialogsUtilities.printDialog("src/main/resources/initialdialogs/Initial Dialog4.txt", "green");
         weapon.chooseFirstWeapon();
 
-        dialogsUtilities.printGreenDialog("src/main/resources/initialdialogs/Initial Dialog5.txt");
+        dialogsUtilities.printDialog("src/main/resources/initialdialogs/Initial Dialog5.txt", "green");
         weapon.wearWeapon();
 
-        dialogsUtilities.printGreenDialog("src/main/resources/initialdialogs/Initial Dialog6.txt");
+        dialogsUtilities.printDialog("src/main/resources/initialdialogs/Initial Dialog6.txt", "green");
 
         additional.chooseCity();
     }
