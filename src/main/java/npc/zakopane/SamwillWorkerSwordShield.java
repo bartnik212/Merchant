@@ -1,5 +1,6 @@
 package npc.zakopane;
 
+import checker.CitiesChecker;
 import utilities.additionalutilities.Additional;
 import utilities.healthutilities.Health;
 import utilities.weaponutilities.WeaponUtilities;
@@ -20,6 +21,8 @@ public class SamwillWorkerSwordShield implements ICombatStyle {
     private final ColorText colorText = new ColorText();
     private final String yellow = colorText.YELLOW;
     private final String textreset = colorText.TEXTRESET;
+
+    private final CitiesChecker citiesChecker = new CitiesChecker();
 
     public void meetSamwillWorkerSwordShield() throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
@@ -67,6 +70,8 @@ public class SamwillWorkerSwordShield implements ICombatStyle {
 
             player.getListOfGoods().add(Goods.valueOf("WOOD"));
             System.out.println("*You defeated the samwill worker and you gained 1 " + Goods.valueOf("WOOD") + "*\n");
+
+            citiesChecker.setSamwillVisited();
 
         } else {
             additional.sameGunAsEnemyDuringAFight();

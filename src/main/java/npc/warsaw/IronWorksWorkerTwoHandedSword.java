@@ -1,5 +1,6 @@
 package npc.warsaw;
 
+import checker.CitiesChecker;
 import utilities.additionalutilities.Additional;
 import utilities.healthutilities.Health;
 import utilities.weaponutilities.WeaponUtilities;
@@ -20,6 +21,8 @@ public class IronWorksWorkerTwoHandedSword implements ICombatStyle {
     private final ColorText colorText = new ColorText();
     private final String yellow = colorText.YELLOW;
     private final String textreset = colorText.TEXTRESET;
+
+    private final CitiesChecker citiesChecker = new CitiesChecker();
 
 
     public void meetIronWorksEmployee() throws InterruptedException {
@@ -61,6 +64,8 @@ public class IronWorksWorkerTwoHandedSword implements ICombatStyle {
                     "Ahhh, that hurts a lot, you son of a bitch...\n" + textreset);
             player.getListOfGoods().add(Goods.valueOf("IRON"));
             System.out.println("*You defeated the iron works employee and you gained 1 " + Goods.valueOf("IRON") + "*\n");
+
+            citiesChecker.setIronWorksVisited();
 
         } else if (player.getWeapon().equals("SWORDSHIELD")) {
             System.out.println("*Two handed sword beats sword and shield*\n");

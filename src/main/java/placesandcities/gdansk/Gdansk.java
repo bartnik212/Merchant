@@ -64,10 +64,11 @@ public class Gdansk implements ICitiesActions {
                     randomEvent.generateRandomEvent();
                     continue;
                 case 5:
-                    if(citiesChecker.isShipyardVisited()){
-                        System.out.println("You have already been here!");
+
+                    if (citiesChecker.isShipyardVisited()) {
+                        System.out.println(colorText.RED + "You have already been here!" + textReset);
                     } else {
-                        gdansk.getShipyardEmployeeMethod();
+                        gdansk.getShipyardWorkerMethod();
                     }
                     continue;
                 case 6:
@@ -101,7 +102,7 @@ public class Gdansk implements ICitiesActions {
         motlawa.relax();
     }
 
-    private void getShipyardEmployeeMethod() throws InterruptedException {
+    private void getShipyardWorkerMethod() throws InterruptedException {
         shipyardWorkerShotgun.meetShipyardEmployeeShotgun();
     }
 

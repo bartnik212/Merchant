@@ -1,5 +1,6 @@
 package placesandcities.warsaw;
 
+import checker.CitiesChecker;
 import utilities.additionalutilities.Additional;
 import citiesActions.ICitiesActions;
 import model.Player;
@@ -21,6 +22,8 @@ public class Warsaw implements ICitiesActions {
     private final RandomEvent randomEvent = new RandomEvent();
 
     private final ColorText colorText = new ColorText();
+
+    CitiesChecker citiesChecker = new CitiesChecker();
 
     @Override
     public void cityAction() throws InterruptedException {
@@ -60,7 +63,12 @@ public class Warsaw implements ICitiesActions {
                     randomEvent.generateRandomEvent();
                     continue;
                 case 5:
-                    warsaw.getIronWorksEmployeeMethod();
+
+                    if (citiesChecker.isIronWorksVisited()) {
+                        System.out.println(colorText.RED + "!You have already been here!" + textReset);
+                    } else {
+                        warsaw.getIronWorksEmployeeMethod();
+                    }
                     continue;
                 case 6:
                     weaponUtilities.buyWeapon();

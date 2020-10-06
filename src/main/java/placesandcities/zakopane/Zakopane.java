@@ -1,5 +1,6 @@
 package placesandcities.zakopane;
 
+import checker.CitiesChecker;
 import utilities.additionalutilities.Additional;
 import citiesActions.ICitiesActions;
 import model.Player;
@@ -22,6 +23,8 @@ public class Zakopane implements ICitiesActions {
 
     private final ColorText colorText = new ColorText();
     private final String textReset = colorText.TEXTRESET;
+
+    CitiesChecker citiesChecker = new CitiesChecker();
 
 
     @Override
@@ -61,7 +64,11 @@ public class Zakopane implements ICitiesActions {
                     randomEvent.generateRandomEvent();
                     continue;
                 case 5:
-                    zakopane.getSamwillWorkerMethod();
+                    if (citiesChecker.isSamwillVisited()) {
+                        System.out.println(colorText.RED + "!You have already been here!" + textReset);
+                    } else {
+                        zakopane.getSamwillWorkerMethod();
+                    }
                     continue;
                 case 6:
                     weaponUtilities.buyWeapon();
