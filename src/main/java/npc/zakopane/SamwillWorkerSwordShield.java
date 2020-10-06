@@ -71,7 +71,7 @@ public class SamwillWorkerSwordShield implements ICombatStyle {
             player.getListOfGoods().add(Goods.valueOf("WOOD"));
             System.out.println("*You defeated the samwill worker and you gained 1 " + Goods.valueOf("WOOD") + "*\n");
 
-            citiesChecker.setSamwillVisited();
+            citiesChecker.setSawmillVisited();
 
         } else {
             additional.sameGunAsEnemyDuringAFight();

@@ -1,6 +1,7 @@
 package placesandcities.zakopane;
 
 import checker.CitiesChecker;
+import checker.ICitiesChecker;
 import utilities.additionalutilities.Additional;
 import citiesActions.ICitiesActions;
 import model.Player;
@@ -12,7 +13,7 @@ import textcolor.ColorText;
 
 import java.util.Scanner;
 
-public class Zakopane implements ICitiesActions {
+public class Zakopane implements ICitiesActions, ICitiesChecker {
 
     private final Player player = new Player();
     private final WeaponUtilities weaponUtilities = new WeaponUtilities();
@@ -64,11 +65,7 @@ public class Zakopane implements ICitiesActions {
                     randomEvent.generateRandomEvent();
                     continue;
                 case 5:
-                    if (citiesChecker.isSamwillVisited()) {
-                        System.out.println(colorText.RED + "!You have already been here!" + textReset);
-                    } else {
-                        zakopane.getSamwillWorkerMethod();
-                    }
+                    checkIfYouWereHere();
                     continue;
                 case 6:
                     weaponUtilities.buyWeapon();
@@ -100,7 +97,19 @@ public class Zakopane implements ICitiesActions {
         gubalowka.relax();
     }
 
+    @Override
+    public void checkIfYouWereHere() throws InterruptedException {
+        Zakopane zakopane = new Zakopane();
+
+        if (citiesChecker.isSawmillVisited()) {
+            System.out.println(colorText.RED + "You have already been here!" + textReset);
+        } else {
+            zakopane.getSamwillWorkerMethod();
+        }
+    }
+
     private void getSamwillWorkerMethod() throws InterruptedException {
         samwillWorkerSwordShield.meetSamwillWorkerSwordShield();
     }
+
 }

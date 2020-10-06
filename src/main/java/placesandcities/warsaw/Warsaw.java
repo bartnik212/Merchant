@@ -1,6 +1,7 @@
 package placesandcities.warsaw;
 
 import checker.CitiesChecker;
+import checker.ICitiesChecker;
 import utilities.additionalutilities.Additional;
 import citiesActions.ICitiesActions;
 import model.Player;
@@ -12,9 +13,10 @@ import textcolor.ColorText;
 
 import java.util.Scanner;
 
-public class Warsaw implements ICitiesActions {
+public class Warsaw implements ICitiesActions, ICitiesChecker {
 
     private final Player player = new Player();
+
     private final WeaponUtilities weaponUtilities = new WeaponUtilities();
     private final Additional additional = new Additional();
     private final MetalMerchant metalMerchant = new MetalMerchant();
@@ -63,12 +65,7 @@ public class Warsaw implements ICitiesActions {
                     randomEvent.generateRandomEvent();
                     continue;
                 case 5:
-
-                    if (citiesChecker.isIronWorksVisited()) {
-                        System.out.println(colorText.RED + "!You have already been here!" + textReset);
-                    } else {
-                        warsaw.getIronWorksEmployeeMethod();
-                    }
+                    checkIfYouWereHere();
                     continue;
                 case 6:
                     weaponUtilities.buyWeapon();
@@ -104,8 +101,18 @@ public class Warsaw implements ICitiesActions {
     }
 
 
+    @Override
+    public void checkIfYouWereHere() throws InterruptedException {
+        Warsaw warsaw = new Warsaw();
+
+        if (citiesChecker.isIronWorksVisited()) {
+            System.out.println(colorText.RED + "You have already been here!" + colorText.TEXTRESET);
+        } else {
+            warsaw.getIronWorksEmployeeMethod();
+        }
+    }
+
     private void getIronWorksEmployeeMethod() throws InterruptedException {
         ironWorksWorkerTwoHandedSword.meetIronWorksEmployee();
     }
-
 }

@@ -1,6 +1,7 @@
 package placesandcities.gdansk;
 
 import checker.CitiesChecker;
+import checker.ICitiesChecker;
 import utilities.additionalutilities.Additional;
 import citiesActions.ICitiesActions;
 import model.Player;
@@ -12,9 +13,10 @@ import textcolor.ColorText;
 
 import java.util.Scanner;
 
-public class Gdansk implements ICitiesActions {
+public class Gdansk implements ICitiesActions, ICitiesChecker {
 
     private final Player player = new Player();
+
     private final WeaponUtilities weaponUtilities = new WeaponUtilities();
     private final Additional additional = new Additional();
     private final WoodMerchant woodMerchant = new WoodMerchant();
@@ -49,7 +51,6 @@ public class Gdansk implements ICitiesActions {
             number = scanner.nextInt();
             Gdansk gdansk = new Gdansk();
 
-
             switch (number) {
                 case 1:
                     gdansk.getWoodMerchantMethod();
@@ -64,12 +65,9 @@ public class Gdansk implements ICitiesActions {
                     randomEvent.generateRandomEvent();
                     continue;
                 case 5:
+                    checkIfYouWereHere();
 
-                    if (citiesChecker.isShipyardVisited()) {
-                        System.out.println(colorText.RED + "You have already been here!" + textReset);
-                    } else {
-                        gdansk.getShipyardWorkerMethod();
-                    }
+
                     continue;
                 case 6:
                     weaponUtilities.buyWeapon();
@@ -102,10 +100,21 @@ public class Gdansk implements ICitiesActions {
         motlawa.relax();
     }
 
+    @Override
+    public void checkIfYouWereHere() throws InterruptedException {
+        Gdansk gdansk = new Gdansk();
+
+        if (citiesChecker.isShipyardVisited()) {
+            System.out.println(colorText.RED + "You have already been here!" + textReset);
+        } else {
+            gdansk.getShipyardWorkerMethod();
+        }
+
+    }
+
     private void getShipyardWorkerMethod() throws InterruptedException {
         shipyardWorkerShotgun.meetShipyardEmployeeShotgun();
     }
-
 }
 
 
