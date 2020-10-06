@@ -5,7 +5,7 @@ import checker.ICitiesChecker;
 import utilities.additionalutilities.Additional;
 import citiesActions.ICitiesActions;
 import model.Player;
-import npc.gdansk.ShipyardWorkerShotgun;
+import npc.gdansk.ShipyardWorkerFireArm;
 import npc.gdansk.WoodMerchant;
 import randomevent.RandomEvent;
 import utilities.weaponutilities.WeaponUtilities;
@@ -21,7 +21,7 @@ public class Gdansk implements ICitiesActions, ICitiesChecker {
     private final Additional additional = new Additional();
     private final WoodMerchant woodMerchant = new WoodMerchant();
     private final RandomEvent randomEvent = new RandomEvent();
-    private final ShipyardWorkerShotgun shipyardWorkerShotgun = new ShipyardWorkerShotgun();
+    private final ShipyardWorkerFireArm shipyardWorkerFireArm = new ShipyardWorkerFireArm();
 
     private final ColorText colorText = new ColorText();
     private final String textReset = colorText.TEXTRESET;
@@ -113,7 +113,7 @@ public class Gdansk implements ICitiesActions, ICitiesChecker {
     }
 
     private void getShipyardWorkerMethod() throws InterruptedException {
-        shipyardWorkerShotgun.meetShipyardEmployeeShotgun();
+        shipyardWorkerFireArm.meetShipyardWorkerFireArm();
     }
 }
 

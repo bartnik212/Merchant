@@ -4,7 +4,7 @@ public enum Weapon {
 
     TWOHANDEDSWORD("Two Handed Sword"),
     SWORDSHIELD("Sword and Shield"),
-    SHOTGUN("Shotgun");
+    FIREARM("Fire Arm");
 
     private final String name;
 

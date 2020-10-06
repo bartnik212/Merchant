@@ -14,6 +14,7 @@ public class Coins {
 
     public void clearCoins() {
         player.setCoins(0);
+        System.out.println("*Robber took all your money*");
     }
 
     public void addCoins(int amount) {

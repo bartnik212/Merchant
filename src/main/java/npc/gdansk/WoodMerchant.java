@@ -32,9 +32,9 @@ public class WoodMerchant {
         if (player.getListOfGoods().contains(Goods.valueOf("WOOD"))) {
 
             String yellow = colorText.YELLOW;
-            String textreset = colorText.TEXTRESET;
+            String textReset = colorText.TEXTRESET;
             System.out.println(yellow + "\nWOOD MERCHANT: Hello Stranger! My name is " + woodMerchant.getName() + " " +
-                    "and I can see that you have some wood. Do you want to sell this for 10 coins? [Y/N]" + textreset);
+                    "and I can see that you have some wood. Do you want to sell this for 10 coins? [Y/N]" + textReset);
 
             String answer = scanner.nextLine();
 

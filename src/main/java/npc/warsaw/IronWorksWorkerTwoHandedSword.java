@@ -59,9 +59,9 @@ public class IronWorksWorkerTwoHandedSword implements ICombatStyle {
 
         additional.wait5Seconds();
 
-        if (player.getWeapon().equals("SHOTGUN")) {
-            System.out.println(yellow + "IRON WORKS WORKER: WHAT? SHOTGUN? OH NO, DON'T SHOOT! ARGHHHH! MY HAND! Okay, okay, you know what, get that iron...\n" +
-                    "Ahhh, that hurts a lot, you son of a bitch...\n" + textreset);
+        if (player.getWeapon().equals("FIREARM")) {
+            System.out.println(yellow + "IRON WORKS WORKER: WHAT? FIRE ARM? OH NO, DON'T SHOOT! ARGHHHH! MY HAND! Okay, okay, you know what, get that iron...\n" +
+                    "Ahhh, that hurts a lot...\n" + textreset);
             player.getListOfGoods().add(Goods.valueOf("IRON"));
             System.out.println("*You defeated the iron works employee and you gained 1 " + Goods.valueOf("IRON") + "*\n");
 

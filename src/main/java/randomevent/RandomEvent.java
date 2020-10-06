@@ -3,10 +3,9 @@ package randomevent;
 import utilities.coinsutilities.Coins;
 import model.Goods;
 import model.Player;
-import npc.robbers.RobberShotgun;
+import npc.robbers.RobberFireArm;
 import npc.robbers.RobberTwoHandedSword;
 import npc.robbers.RobberSwordShield;
-import textcolor.ColorText;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -16,7 +15,7 @@ public class RandomEvent {
 
     private final RobberSwordShield robberSwordShield = new RobberSwordShield();
     private final RobberTwoHandedSword robberTwoHandedSword = new RobberTwoHandedSword();
-    private final RobberShotgun robberShotgun = new RobberShotgun();
+    private final RobberFireArm robberFireArm = new RobberFireArm();
 
     private final Coins coins = new Coins();
     private final Player player = new Player();
@@ -34,7 +33,7 @@ public class RandomEvent {
                 robberTwoHandedSword.meetRobberWithTwoHanded();
                 break;
             case 2:
-                robberShotgun.meetRobberWithShotgun();
+                robberFireArm.meetRobberWithFireArm();
                 break;
             case 3:
                 findPurseOfGold();

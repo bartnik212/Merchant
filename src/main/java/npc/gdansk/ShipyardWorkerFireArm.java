@@ -11,7 +11,7 @@ import textcolor.ColorText;
 
 import java.util.Scanner;
 
-public class ShipyardWorkerShotgun implements ICombatStyle {
+public class ShipyardWorkerFireArm implements ICombatStyle {
 
 
     private final Additional additional = new Additional();
@@ -26,7 +26,7 @@ public class ShipyardWorkerShotgun implements ICombatStyle {
     private final CitiesChecker citiesChecker = new CitiesChecker();
 
 
-    public void meetShipyardEmployeeShotgun() throws InterruptedException {
+    public void meetShipyardWorkerFireArm() throws InterruptedException {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -49,7 +49,7 @@ public class ShipyardWorkerShotgun implements ICombatStyle {
             System.out.println("*You leave the shipyard*");
 
         } else if (answer.equals("f")) {
-            ShipyardWorkerShotgun ses = new ShipyardWorkerShotgun();
+            ShipyardWorkerFireArm ses = new ShipyardWorkerFireArm();
             ses.fight();
         }
     }
@@ -57,7 +57,7 @@ public class ShipyardWorkerShotgun implements ICombatStyle {
 
     @Override
     public void fight() throws InterruptedException {
-        System.out.println(yellow + "SHIPYARD WORKER: Ok, so you want to fight with me! I will use my shotgun!\n" + textreset);
+        System.out.println(yellow + "SHIPYARD WORKER: Ok, so you want to fight with me! I will use my fire arm!\n" + textreset);
 
         weaponUtilities.showTheWeaponYouFight();
         additional.wait5Seconds();
@@ -71,7 +71,7 @@ public class ShipyardWorkerShotgun implements ICombatStyle {
             citiesChecker.setShipyardVisited();
 
         } else if (player.getWeapon().equals("TWOHANDEDSWORD")) {
-            System.out.println("*Shotgun beats Two handed sword*\n");
+            System.out.println("*Fire arm beats Two handed sword*\n");
             System.out.println(yellow + "SHIPYARD WORKER: HAHA! I have beaten you!\n" +
                     "Now, get the fuck out of here!\n" + textreset);
             health.deleteHealthPoints(50);

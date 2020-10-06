@@ -49,7 +49,7 @@ public class RobberTwoHandedSword implements ICombatStyle {
 
         additional.wait5Seconds();
 
-        if (player.getWeapon().equals("SHOTGUN")) {
+        if (player.getWeapon().equals("FIREARM")) {
             System.out.println(yellow + "ROBBER: Arghhh! My stomach! You shot me right in the stomach! " +
                     "Arghhhh! I'm dying.. please tell my mother that I love her..." + textreset);
             player.setCoins(player.getCoins() + 10);

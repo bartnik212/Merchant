@@ -32,7 +32,7 @@ public class SamwillWorkerSwordShield implements ICombatStyle {
                 "Everywhere you can hear the noise of trees cut in half and sawmills.\n" +
                 "There is a lot of wood outside the sawmill.\n" +
                 "You come over, you are about to finish packing a few solid pieces into the bag, but unlucky one of the workers noticed you.*\n");
-        System.out.println(yellow + "SAMWILL WORKER: Okay motherfucker, listen!\n" +
+        System.out.println(yellow + "SAMWILL WORKER: Okay you, listen!\n" +
                 "You will face the best of us, if you win, you can take this wood,\n" +
                 "and if not, your mother will not recognize you anymore.\n" +
                 "Unless you're a coward and you want to run away!\n\n " + textreset);
@@ -56,8 +56,8 @@ public class SamwillWorkerSwordShield implements ICombatStyle {
         weaponUtilities.showTheWeaponYouFight();
         additional.wait5Seconds();
 
-        if (player.getWeapon().equals("SHOTGUN")) {
-            System.out.println("*Sword and shield beat shotgun*\n");
+        if (player.getWeapon().equals("FIREARM")) {
+            System.out.println("*Sword and shield beat fire arm*\n");
             System.out.println(yellow + "SAMWILL WORKER: Haha! I can protect myself from your shots with my shield! Now die!\n" + textreset);
             health.deleteHealthPoints(50);
             additional.playerDiesIfBelow0();

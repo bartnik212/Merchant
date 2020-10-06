@@ -36,7 +36,7 @@ public class WeaponUtilities {
                 player.getListOfWeapon().add(model.Weapon.valueOf("SWORDSHIELD"));
                 break;
             case "3":
-                player.getListOfWeapon().add(model.Weapon.valueOf("SHOTGUN"));
+                player.getListOfWeapon().add(model.Weapon.valueOf("FIREARM"));
                 break;
             default:
                 System.out.println(colorText.RED + "Choose the right number: " + colorText.TEXTRESET);
