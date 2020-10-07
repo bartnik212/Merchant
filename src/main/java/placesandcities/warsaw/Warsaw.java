@@ -104,7 +104,7 @@ public class Warsaw implements ICitiesActions, ICitiesChecker {
 
 
     @Override
-    public void checkIfYouWereHere() throws InterruptedException {
+    public void checkIfYouWereHere() throws InterruptedException, IOException {
         Warsaw warsaw = new Warsaw();
 
         if (citiesChecker.isIronWorksVisited()) {
@@ -114,7 +114,7 @@ public class Warsaw implements ICitiesActions, ICitiesChecker {
         }
     }
 
-    private void getIronWorksEmployeeMethod() throws InterruptedException {
+    private void getIronWorksEmployeeMethod() throws InterruptedException, IOException {
         ironWorksWorkerTwoHandedSword.meetIronWorksEmployee();
     }
 }
