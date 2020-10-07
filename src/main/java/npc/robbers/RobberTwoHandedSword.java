@@ -2,12 +2,13 @@ package npc.robbers;
 
 import utilities.additionalutilities.Additional;
 import utilities.coinsutilities.Coins;
+import utilities.dialogsutilities.DialogsUtilities;
 import utilities.weaponutilities.WeaponUtilities;
 import combatStyle.ICombatStyle;
 import utilities.healthutilities.Health;
 import model.Player;
-import textcolor.ColorText;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class RobberTwoHandedSword implements ICombatStyle {
@@ -18,20 +19,20 @@ public class RobberTwoHandedSword implements ICombatStyle {
     private final Health health = new Health();
     private final Additional additional = new Additional();
 
-    private final ColorText colorText = new ColorText();
-    private final String yellow = colorText.YELLOW;
-    private final String textreset = colorText.TEXTRESET;
+    private final DialogsUtilities dialogsUtilities = new DialogsUtilities();
 
 
-    public void meetRobberWithTwoHanded() throws InterruptedException {
+    public void meetRobberWithTwoHanded() throws InterruptedException, IOException {
+
+        dialogsUtilities.printDialog("src/main/resources/robbertwohandedsworddialogs/dialog1.txt", "yellow");
+        dialogsUtilities.printDialog("src/main/resources/robbertwohandedsworddialogs/dialog2.txt", "white");
+
+        moneyOrFight();
+    }
+
+    private void moneyOrFight() throws InterruptedException, IOException {
         Scanner scanner = new Scanner(System.in);
-
-        System.out.println(yellow + "ROBBER: Ha ha! You fell into my trap! Now, give me all your money or I will beat you!" + textreset);
-
-        System.out.println("*Give all the money/fight? [m/f]*");
         String answer = scanner.nextLine();
-
-        System.out.println("*Your weapon is: " + player.getListOfWeapon() + "*");
 
         if (answer.equalsIgnoreCase("m")) {
             coins.clearCoins();
@@ -42,37 +43,38 @@ public class RobberTwoHandedSword implements ICombatStyle {
     }
 
     @Override
-    public void fight() throws InterruptedException {
-        System.out.println(yellow + "ROBBER: I'm fighting with Two Handed Sword! And you? What is your weapon?" + textreset);
+    public void fight() throws InterruptedException, IOException {
+        dialogsUtilities.printDialog("src/main/resources/robbertwohandedsworddialogs/dialog3.txt", "yellow");
 
         weaponUtilities.showTheWeaponYouFight();
-
         additional.wait5Seconds();
 
         if (player.getWeapon().equals("FIREARM")) {
-            System.out.println(yellow + "ROBBER: Arghhh! My stomach! You shot me right in the stomach! " +
-                    "Arghhhh! I'm dying.. please tell my mother that I love her..." + textreset);
-            player.setCoins(player.getCoins() + 10);
-            System.out.println("*You defeated the robber and you gained 10 coins*");
+            fireArmSelected();
 
         } else if (player.getWeapon().equals("SWORDSHIELD")) {
-            System.out.println("*Two handed sword beats sword and shield*");
-            System.out.println(yellow + "ROBBER: I told you not to fight with me. Now, give me your money!");
-
-            coins.clearCoins();
-            health.deleteHealthPoints(40);
-            additional.playerDiesIfBelow0();
-
-            System.out.println("*All coins taken*\n" +
-                    "*You have " + player.getHealthPoints() + " hp left*");
+            swordShieldSelected();
 
         } else {
-            System.out.println("*It turns out that you both have the same type of weapon.\n" +
-                    "You injured yourself badly, but no one took anything from anyone.*");
-            health.deleteHealthPoints(30);
-            System.out.println("*You have " + player.getHealthPoints() + " hp left*\n");
-
+            additional.sameGunAsEnemyDuringAFight();
         }
 
+    }
+
+    private void swordShieldSelected() throws IOException {
+        dialogsUtilities.printDialog("src/main/resources/robbertwohandedsworddialogs/dialog6.txt", "white");
+        dialogsUtilities.printDialog("src/main/resources/robbertwohandedsworddialogs/dialog7.txt", "yellow");
+
+        coins.clearCoins();
+        health.deleteHealthPoints(40);
+        additional.playerDiesIfBelow0();
+
+        dialogsUtilities.printDialog("src/main/resources/robbertwohandedsworddialogs/dialog8.txt", "white");
+    }
+
+    private void fireArmSelected() throws IOException {
+        dialogsUtilities.printDialog("src/main/resources/robbertwohandedsworddialogs/dialog4.txt", "yellow");
+        dialogsUtilities.printDialog("src/main/resources/robbertwohandedsworddialogs/dialog5.txt", "white");
+        player.setCoins(player.getCoins() + 10);
     }
 }

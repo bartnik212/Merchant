@@ -7,7 +7,6 @@ import utilities.weaponutilities.WeaponUtilities;
 import combatStyle.ICombatStyle;
 import utilities.healthutilities.Health;
 import model.Player;
-import textcolor.ColorText;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -19,10 +18,6 @@ public class RobberSwordShield implements ICombatStyle {
     private final WeaponUtilities weaponUtilities = new WeaponUtilities();
     private final Additional additional = new Additional();
     private final Health health = new Health();
-
-    private final ColorText colorText = new ColorText();
-    private final String yellow = colorText.YELLOW;
-    private final String textReset = colorText.TEXTRESET;
 
     DialogsUtilities dialogsUtilities = new DialogsUtilities();
 
@@ -69,9 +64,7 @@ public class RobberSwordShield implements ICombatStyle {
 
     private void twoHandedSwordSelected() throws IOException {
         dialogsUtilities.printDialog("src/main/resources/robberswordshielddialogs/dialog4.txt", "yellow");
-
         player.setCoins(player.getCoins() + 10);
-
         dialogsUtilities.printDialog("src/main/resources/robberswordshielddialogs/dialog5.txt", "white");
     }
 
