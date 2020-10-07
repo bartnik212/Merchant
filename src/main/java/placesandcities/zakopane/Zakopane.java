@@ -12,6 +12,7 @@ import utilities.weaponutilities.WeaponUtilities;
 import textcolor.ColorText;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Zakopane implements ICitiesActions, ICitiesChecker {
@@ -30,7 +31,7 @@ public class Zakopane implements ICitiesActions, ICitiesChecker {
 
 
     @Override
-    public void cityAction() throws InterruptedException, FileNotFoundException {
+    public void cityAction() throws InterruptedException, IOException {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("You are in the mountains!\n" +

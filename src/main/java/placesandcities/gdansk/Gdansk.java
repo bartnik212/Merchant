@@ -12,6 +12,7 @@ import utilities.weaponutilities.WeaponUtilities;
 import textcolor.ColorText;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Gdansk implements ICitiesActions, ICitiesChecker {
@@ -30,7 +31,7 @@ public class Gdansk implements ICitiesActions, ICitiesChecker {
     CitiesChecker citiesChecker = new CitiesChecker();
 
     @Override
-    public void cityAction() throws InterruptedException, FileNotFoundException {
+    public void cityAction() throws InterruptedException, IOException {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("All right then! Let's see what you can do inside Gdansk...\n" +
@@ -81,7 +82,7 @@ public class Gdansk implements ICitiesActions, ICitiesChecker {
     }
 
 
-    private void getWoodMerchantMethod() {
+    private void getWoodMerchantMethod() throws IOException {
         woodMerchant.meetWoodMerchant();
     }
 
@@ -100,7 +101,7 @@ public class Gdansk implements ICitiesActions, ICitiesChecker {
     }
 
     @Override
-    public void checkIfYouWereHere() throws InterruptedException, FileNotFoundException {
+    public void checkIfYouWereHere() throws InterruptedException, IOException {
         Gdansk gdansk = new Gdansk();
 
         if (citiesChecker.isShipyardVisited()) {
@@ -111,7 +112,7 @@ public class Gdansk implements ICitiesActions, ICitiesChecker {
 
     }
 
-    private void getShipyardWorkerMethod() throws InterruptedException, FileNotFoundException {
+    private void getShipyardWorkerMethod() throws InterruptedException, IOException {
         shipyardWorkerFireArm.meetShipyardWorkerFireArm();
     }
 }

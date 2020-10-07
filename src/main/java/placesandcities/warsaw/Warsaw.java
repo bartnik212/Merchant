@@ -12,6 +12,7 @@ import utilities.weaponutilities.WeaponUtilities;
 import textcolor.ColorText;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Warsaw implements ICitiesActions, ICitiesChecker {
@@ -29,7 +30,7 @@ public class Warsaw implements ICitiesActions, ICitiesChecker {
     CitiesChecker citiesChecker = new CitiesChecker();
 
     @Override
-    public void cityAction() throws InterruptedException, FileNotFoundException {
+    public void cityAction() throws InterruptedException, IOException {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Let's see what opportunities you can find in Warsaw\n" +

@@ -10,6 +10,7 @@ import model.Goods;
 import model.Player;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class ShipyardWorkerFireArm implements ICombatStyle {
@@ -23,9 +24,7 @@ public class ShipyardWorkerFireArm implements ICombatStyle {
     private final CitiesChecker citiesChecker = new CitiesChecker();
 
 
-    public void meetShipyardWorkerFireArm() throws InterruptedException, FileNotFoundException {
-
-        Scanner scanner = new Scanner(System.in);
+    public void meetShipyardWorkerFireArm() throws InterruptedException, IOException {
 
         dialogsUtilities.printDialog("src/main/resources/shipyardworkerdialogs/dialog1.txt", "white");
 
@@ -33,12 +32,14 @@ public class ShipyardWorkerFireArm implements ICombatStyle {
 
         dialogsUtilities.printDialog("src/main/resources/shipyardworkerdialogs/dialog3.txt", "white");
 
-        fightOrLeave(scanner);
+        fightOrLeave();
     }
 
-    private void fightOrLeave(Scanner scanner) throws InterruptedException, FileNotFoundException {
+    private void fightOrLeave() throws InterruptedException, IOException {
 
+        Scanner scanner = new Scanner(System.in);
         String answer = scanner.nextLine();
+
         if (answer.equalsIgnoreCase("l")) {
             System.out.println("*You leave the shipyard*");
 
@@ -49,7 +50,7 @@ public class ShipyardWorkerFireArm implements ICombatStyle {
     }
 
     @Override
-    public void fight() throws InterruptedException, FileNotFoundException {
+    public void fight() throws InterruptedException, IOException {
         dialogsUtilities.printDialog("src/main/resources/shipyardworkerdialogs/dialog4.txt", "yellow");
 
         weaponUtilities.showTheWeaponYouFight();
@@ -58,7 +59,7 @@ public class ShipyardWorkerFireArm implements ICombatStyle {
         checkYourSelectedWeapon();
     }
 
-    private void checkYourSelectedWeapon() throws FileNotFoundException {
+    private void checkYourSelectedWeapon() throws IOException {
         if (player.getWeapon().equals("SWORDSHIELD")) {
 
             dialogsUtilities.printDialog("src/main/resources/shipyardworkerdialogs/dialog5.txt", "yellow");

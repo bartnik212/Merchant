@@ -2,8 +2,7 @@ package utilities.dialogsutilities;
 
 import textcolor.ColorText;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.Scanner;
 
 public class DialogsUtilities {
@@ -11,7 +10,7 @@ public class DialogsUtilities {
     private static final ColorText colorText = new ColorText();
 
 
-    public void printDialog(String path, String color) throws FileNotFoundException {
+    public void printDialog(String path, String color) throws IOException {
         String chosenColor = chooseColor(color);
 
         File file = new File(path);

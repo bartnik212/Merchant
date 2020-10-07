@@ -6,12 +6,12 @@ import utilities.goodsutilities.GoodsUtilities;
 import utilities.healthutilities.Health;
 import utilities.weaponutilities.WeaponUtilities;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class GameBoard {
 
-    public static void main(String[] args) throws InterruptedException, FileNotFoundException {
+    public static void main(String[] args) throws InterruptedException, IOException {
 
         Scanner scanner = new Scanner(System.in);
         Additional additional = new Additional();
@@ -28,7 +28,7 @@ public class GameBoard {
         health.fillHealthPoints();
 
         //WROC DO TEGO
-        dialogsUtilities.printDialog("src/main/resources/initialdialogs/Hello.txt", "green");
+        dialogsUtilities.printDialog("src/main/resources/initialdialogs/hello.txt", "green");
         System.out.println(player.getName());
 
         dialogsUtilities.printDialog("src/main/resources/initialdialogs/Initial Dialog2.txt", "green");

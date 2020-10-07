@@ -3,13 +3,17 @@ package npc.gdansk;
 
 import model.Goods;
 import model.Player;
-import textcolor.ColorText;
+import utilities.dialogsutilities.DialogsUtilities;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class WoodMerchant {
 
     private String name;
+
+    private final Player player = new Player();
+    private final DialogsUtilities dialogsUtilities = new DialogsUtilities();
 
     private String getName() {
         return name;
@@ -19,41 +23,46 @@ public class WoodMerchant {
         this.name = name;
     }
 
-    private final Player player = new Player();
 
-    private final ColorText colorText = new ColorText();
-
-
-    public void meetWoodMerchant() {
-        Scanner scanner = new Scanner(System.in);
+    public void meetWoodMerchant() throws IOException {
         WoodMerchant woodMerchant = new WoodMerchant();
         woodMerchant.setName("Harold");
 
         if (player.getListOfGoods().contains(Goods.valueOf("WOOD"))) {
 
-            String yellow = colorText.YELLOW;
-            String textReset = colorText.TEXTRESET;
-            System.out.println(yellow + "\nWOOD MERCHANT: Hello Stranger! My name is " + woodMerchant.getName() + " " +
-                    "and I can see that you have some wood. Do you want to sell this for 10 coins? [Y/N]" + textReset);
+            dialogsUtilities.printDialog("src/main/resources/woodmerchantdialogs/hello.txt", "yellow");
+            System.out.println(woodMerchant.getName());
 
-            String answer = scanner.nextLine();
+            dialogsUtilities.printDialog("src/main/resources/woodmerchantdialogs/dialog1.txt", "yellow");
 
-            if (answer.toUpperCase().equalsIgnoreCase("y")) {
-                player.getListOfGoods().remove(Goods.valueOf("WOOD"));
-                player.setCoins(player.getCoins() + 10);
-
-
-                System.out.println( "*1 Wood sold*\n" +
-                        "*10 coins added to your pocket*\n" );
-            } else {
-                System.out.println("WOOD MERCHANT: Ok, see you next time!\n" );
-            }
+            yesOrNo();
 
         } else {
-            System.out.println("WOOD MERCHANT: Hello Stranger! My name is " + woodMerchant.getName() + ". " +
-                    "I'm sorry but I can see that you have no wood. If you want to earn some coins, " +
-                    "come back to me when you have some.\n" );
+
+            dialogsUtilities.printDialog("src/main/resources/woodmerchantdialogs/hello.txt", "yellow");
+            System.out.println(woodMerchant.getName());
+
+            dialogsUtilities.printDialog("src/main/resources/woodmerchantdialogs/dialog2.txt", "yellow");
+
         }
     }
 
+    public void yesOrNo() throws IOException {
+
+        Scanner scanner = new Scanner(System.in);
+        String answer = scanner.nextLine();
+
+        if (answer.toUpperCase().equalsIgnoreCase("y")) {
+            player.getListOfGoods().remove(Goods.valueOf("WOOD"));
+            player.setCoins(player.getCoins() + 10);
+
+            dialogsUtilities.printDialog("src/main/resources/woodmerchantdialogs/dialog3.txt", "white");
+
+        } else {
+            dialogsUtilities.printDialog("src/main/resources/woodmerchantdialogs/dialog4.txt", "yellow");
+        }
+
+    }
 }
+
+
