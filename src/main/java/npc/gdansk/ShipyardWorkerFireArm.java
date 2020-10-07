@@ -9,7 +9,6 @@ import combatStyle.ICombatStyle;
 import model.Goods;
 import model.Player;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -76,7 +75,9 @@ public class ShipyardWorkerFireArm implements ICombatStyle {
 
             health.deleteHealthPoints(50);
             additional.playerDiesIfBelow0();
-            System.out.println("*You have " + player.getHealthPoints() + " hp left*\n");
+            dialogsUtilities.printDialog("src/main/resources/shipyardworkerdialogs/dialog9.txt", "white");
+            System.out.println(player.getHealthPoints());
+
 
         } else {
             additional.sameGunAsEnemyDuringAFight();

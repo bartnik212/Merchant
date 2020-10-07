@@ -19,6 +19,7 @@ public class DialogsUtilities {
         while (inputfile.hasNext()) {
             System.out.println(chosenColor + inputfile.nextLine() + colorText.TEXTRESET);
         }
+
         inputfile.close();
 
     }

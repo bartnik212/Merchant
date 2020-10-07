@@ -115,7 +115,7 @@ public class WeaponUtilities {
     }
 
     public void showTheWeaponYouFight() {
-        System.out.println("*You fight with " + player.getWeapon() + "*");
+        System.out.println(colorText.WHITE + "*You fight with " + player.getWeapon() + "*" + colorText.TEXTRESET);
     }
 
 }
