@@ -53,15 +53,24 @@ public class WoodMerchant {
         String answer = scanner.nextLine();
 
         if (answer.toUpperCase().equalsIgnoreCase("y")) {
-            player.getListOfGoods().remove(Goods.valueOf("WOOD"));
-            player.setCoins(player.getCoins() + 10);
 
-            dialogsUtilities.printDialog("src/main/resources/woodmerchantdialogs/dialog3.txt", "white");
+            positiveAnswer();
 
         } else {
-            dialogsUtilities.printDialog("src/main/resources/woodmerchantdialogs/dialog4.txt", "yellow");
+            negativeAnswer();
         }
 
+    }
+
+    private void negativeAnswer() throws IOException {
+        dialogsUtilities.printDialog("src/main/resources/woodmerchantdialogs/dialog4.txt", "yellow");
+    }
+
+    private void positiveAnswer() throws IOException {
+        player.getListOfGoods().remove(Goods.valueOf("WOOD"));
+        player.setCoins(player.getCoins() + 10);
+
+        dialogsUtilities.printDialog("src/main/resources/woodmerchantdialogs/dialog3.txt", "white");
     }
 }
 

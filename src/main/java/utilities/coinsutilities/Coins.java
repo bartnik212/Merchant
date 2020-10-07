@@ -1,10 +1,12 @@
 package utilities.coinsutilities;
 
 import model.Player;
+import textcolor.ColorText;
 
 public class Coins {
 
     private final Player player = new Player();
+    private final ColorText colorText = new ColorText();
 
 
     public void add20CoinsAtTheBeginning() {
@@ -14,7 +16,7 @@ public class Coins {
 
     public void clearCoins() {
         player.setCoins(0);
-        System.out.println("*Robber took all your money*");
+        System.out.println(colorText.WHITE + "*Robber took all your money*" + colorText.TEXTRESET);
     }
 
     public void addCoins(int amount) {

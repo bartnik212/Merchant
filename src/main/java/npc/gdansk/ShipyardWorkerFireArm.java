@@ -61,27 +61,36 @@ public class ShipyardWorkerFireArm implements ICombatStyle {
     private void checkYourSelectedWeapon() throws IOException {
         if (player.getWeapon().equals("SWORDSHIELD")) {
 
-            dialogsUtilities.printDialog("src/main/resources/shipyardworkerdialogs/dialog5.txt", "yellow");
-            player.getListOfGoods().add(Goods.valueOf("METAL"));
-
-            dialogsUtilities.printDialog("src/main/resources/shipyardworkerdialogs/dialog6.txt", "white");
-            System.out.println(Goods.valueOf("METAL"));
-
-            citiesChecker.setShipyardVisited();
+            swordShieldSelected();
 
         } else if (player.getWeapon().equals("TWOHANDEDSWORD")) {
-            dialogsUtilities.printDialog("src/main/resources/shipyardworkerdialogs/dialog7.txt", "white");
-            dialogsUtilities.printDialog("src/main/resources/shipyardworkerdialogs/dialog8.txt", "yellow");
-
-            health.deleteHealthPoints(50);
-            additional.playerDiesIfBelow0();
-            dialogsUtilities.printDialog("src/main/resources/shipyardworkerdialogs/dialog9.txt", "white");
-            System.out.println(player.getHealthPoints());
+            twoHandedSwordSelected();
 
 
         } else {
             additional.sameGunAsEnemyDuringAFight();
         }
+    }
+
+
+    private void twoHandedSwordSelected() throws IOException {
+        dialogsUtilities.printDialog("src/main/resources/shipyardworkerdialogs/dialog7.txt", "white");
+        dialogsUtilities.printDialog("src/main/resources/shipyardworkerdialogs/dialog8.txt", "yellow");
+
+        health.deleteHealthPoints(50);
+        additional.playerDiesIfBelow0();
+        dialogsUtilities.printDialog("src/main/resources/shipyardworkerdialogs/dialog9.txt", "white");
+        System.out.println(player.getHealthPoints());
+    }
+
+    private void swordShieldSelected() throws IOException {
+        dialogsUtilities.printDialog("src/main/resources/shipyardworkerdialogs/dialog5.txt", "yellow");
+        player.getListOfGoods().add(Goods.valueOf("METAL"));
+
+        dialogsUtilities.printDialog("src/main/resources/shipyardworkerdialogs/dialog6.txt", "white");
+        System.out.println(Goods.valueOf("METAL"));
+
+        citiesChecker.setShipyardVisited();
     }
 
 

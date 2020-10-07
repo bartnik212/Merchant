@@ -7,6 +7,7 @@ import npc.robbers.RobberFireArm;
 import npc.robbers.RobberTwoHandedSword;
 import npc.robbers.RobberSwordShield;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -22,7 +23,7 @@ public class RandomEvent {
 
     private static final Random random = new Random();
 
-    public  void generateRandomEvent() throws InterruptedException {
+    public  void generateRandomEvent() throws InterruptedException, IOException {
         int randomNumber = random.nextInt(5);
 
         switch (randomNumber) {
