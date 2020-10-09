@@ -1,6 +1,6 @@
 package placesandcities.gdansk;
 
-import checker.WorkersChecker;
+import checker.PlaceChecker;
 import checker.ICitiesChecker;
 import utilities.additionalutilities.Additional;
 import citiesActions.ICitiesActions;
@@ -8,8 +8,8 @@ import model.Player;
 import npc.gdansk.ShipyardWorkerFireArm;
 import npc.gdansk.WoodMerchant;
 import randomevent.RandomEvent;
+import utilities.dialogsutilities.DialogsUtilities;
 import utilities.weaponutilities.WeaponUtilities;
-import textcolor.ColorText;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -24,31 +24,20 @@ public class Gdansk implements ICitiesActions, ICitiesChecker {
     private final RandomEvent randomEvent = new RandomEvent();
     private final ShipyardWorkerFireArm shipyardWorkerFireArm = new ShipyardWorkerFireArm();
 
-    private final ColorText colorText = new ColorText();
-    private final String textReset = colorText.TEXTRESET;
+    private final DialogsUtilities dialogsUtilities = new DialogsUtilities();
+    private final PlaceChecker placeChecker = new PlaceChecker();
 
-    WorkersChecker workersChecker = new WorkersChecker();
+    private final Scanner scanner = new Scanner(System.in);
 
     @Override
     public void cityAction() throws InterruptedException, IOException {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("All right then! Let's see what you can do inside Gdansk...\n" +
-                "You have 8 scenarios :\n");
+        dialogsUtilities.printDialog("src/main/resources/placesandcitiesdialogs/gdanskdialogs/dialog1.txt", "white");
 
         int number;
         do {
-            String blue = colorText.BLUE;
-            System.out.println(blue + "1. Meet with goods merchant\n" +
-                    "2. Go on the trip on Motlawa (5 coins) \n" +
-                    "3. Change the city (5 coins) \n" +
-                    "4. Random action which can be something good to you, like for example, additional coin for you or" +
-                    " attack of evil robbers!\n" +
-                    "5. Go to the shipyard and look for some goods\n" +
-                    "6. Go to the weapon store\n" +
-                    "7. Choose the weapon to fight\n" +
-                    "8. Show your level of HP, coins, goods and weapon\n" +
-                    "Now, what do you want to do? Please choose the number: " + textReset);
+            dialogsUtilities.printDialog("src/main/resources/placesandcitiesdialogs/gdanskdialogs/dialog2.txt", "blue");
+
             number = scanner.nextInt();
             Gdansk gdansk = new Gdansk();
 
@@ -85,10 +74,11 @@ public class Gdansk implements ICitiesActions, ICitiesChecker {
         woodMerchant.meetWoodMerchant();
     }
 
-    private void ifEnoughMoneyGoToMotlawa() {
+    private void ifEnoughMoneyGoToMotlawa() throws IOException {
         if (player.getCoins() == 0) {
-            String red = colorText.RED;
-            System.out.println(red + "*You don't have enough money to go to Motlawa!*" + textReset);
+
+            dialogsUtilities.printDialog("src/main/resources/placesandcitiesdialogs/gdanskdialogs/dialog3.txt", "red");
+
         } else {
             getMotlawaMethod();
         }
@@ -103,8 +93,9 @@ public class Gdansk implements ICitiesActions, ICitiesChecker {
     public void checkIfYouWereHere() throws InterruptedException, IOException {
         Gdansk gdansk = new Gdansk();
 
-        if (workersChecker.isShipyardVisited()) {
-            System.out.println(colorText.RED + "You have already been here!" + textReset);
+        if (placeChecker.isShipyardVisited()) {
+            dialogsUtilities.printDialog("src/main/resources/placesandcitiesdialogs/gdanskdialogs/dialog4.txt", "red");
+
         } else {
             gdansk.getShipyardWorkerMethod();
         }

@@ -1,6 +1,6 @@
 package placesandcities.zakopane;
 
-import checker.WorkersChecker;
+import checker.PlaceChecker;
 import checker.ICitiesChecker;
 import utilities.additionalutilities.Additional;
 import citiesActions.ICitiesActions;
@@ -26,7 +26,7 @@ public class Zakopane implements ICitiesActions, ICitiesChecker {
     private final ColorText colorText = new ColorText();
     private final String textReset = colorText.TEXTRESET;
 
-    WorkersChecker workersChecker = new WorkersChecker();
+    PlaceChecker placeChecker = new PlaceChecker();
 
 
     @Override
@@ -102,7 +102,7 @@ public class Zakopane implements ICitiesActions, ICitiesChecker {
     public void checkIfYouWereHere() throws InterruptedException, IOException {
         Zakopane zakopane = new Zakopane();
 
-        if (workersChecker.isSawmillVisited()) {
+        if (placeChecker.isSawmillVisited()) {
             System.out.println(colorText.RED + "You have already been here!" + textReset);
         } else {
             zakopane.getSamwillWorkerMethod();

@@ -29,17 +29,17 @@ public class MetalMerchant {
 
         if (player.getListOfGoods().contains(Goods.valueOf("METAL"))) {
 
-            dialogsUtilities.printDialog("src/main/resources/metalmerchantdialogs/hello.txt", "yellow");
+            dialogsUtilities.printDialog("src/main/resources/merchantsdialogs/metalmerchantdialogs/hello.txt", "yellow");
             System.out.println(metalMerchant.getName());
-            dialogsUtilities.printDialog("src/main/resources/metalmerchantdialogs/dialog1.txt", "yellow");
+            dialogsUtilities.printDialog("src/main/resources/merchantsdialogs/metalmerchantdialogs/dialog1.txt", "yellow");
 
             yesOrNo();
 
         } else {
 
-            dialogsUtilities.printDialog("src/main/resources/metalmerchantdialogs/hello.txt", "yellow");
+            dialogsUtilities.printDialog("src/main/resources/merchantsdialogs/metalmerchantdialogs/hello.txt", "yellow");
             System.out.println(metalMerchant.getName());
-            dialogsUtilities.printDialog("src/main/resources/metalmerchantdialogs/dialog2.txt", "yellow");
+            dialogsUtilities.printDialog("src/main/resources/merchantsdialogs/metalmerchantdialogs/dialog2.txt", "yellow");
         }
     }
 
@@ -60,11 +60,11 @@ public class MetalMerchant {
         player.getListOfGoods().remove(Goods.valueOf("METAL"));
         player.setCoins(player.getCoins() + 10);
 
-        dialogsUtilities.printDialog("src/main/resources/metalmerchantdialogs/dialog3.txt", "white");
+        dialogsUtilities.printDialog("src/main/resources/merchantsdialogs/metalmerchantdialogs/dialog3.txt", "white");
     }
 
     private void negativeAnswer() throws IOException {
-        dialogsUtilities.printDialog("src/main/resources/metalmerchantdialogs/dialog4.txt", "yellow");
+        dialogsUtilities.printDialog("src/main/resources/merchantsdialogs/metalmerchantdialogs/dialog4.txt", "yellow");
 
     }
 }

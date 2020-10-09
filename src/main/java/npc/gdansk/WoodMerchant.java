@@ -30,17 +30,17 @@ public class WoodMerchant {
 
         if (player.getListOfGoods().contains(Goods.valueOf("WOOD"))) {
 
-            dialogsUtilities.printDialog("src/main/resources/woodmerchantdialogs/hello.txt", "yellow");
+            dialogsUtilities.printDialog("src/main/resources/merchantsdialogs/woodmerchantdialogs/hello.txt", "yellow");
             System.out.println(woodMerchant.getName());
-            dialogsUtilities.printDialog("src/main/resources/woodmerchantdialogs/dialog1.txt", "yellow");
+            dialogsUtilities.printDialog("src/main/resources/merchantsdialogs/woodmerchantdialogs/dialog1.txt", "yellow");
 
             yesOrNo();
 
         } else {
 
-            dialogsUtilities.printDialog("src/main/resources/woodmerchantdialogs/hello.txt", "yellow");
+            dialogsUtilities.printDialog("src/main/resources/merchantsdialogs/woodmerchantdialogs/hello.txt", "yellow");
             System.out.println(woodMerchant.getName());
-            dialogsUtilities.printDialog("src/main/resources/woodmerchantdialogs/dialog2.txt", "yellow");
+            dialogsUtilities.printDialog("src/main/resources/merchantsdialogs/woodmerchantdialogs/dialog2.txt", "yellow");
 
         }
     }
@@ -64,11 +64,11 @@ public class WoodMerchant {
         player.getListOfGoods().remove(Goods.valueOf("WOOD"));
         player.setCoins(player.getCoins() + 10);
 
-        dialogsUtilities.printDialog("src/main/resources/woodmerchantdialogs/dialog3.txt", "white");
+        dialogsUtilities.printDialog("src/main/resources/merchantsdialogs/woodmerchantdialogs/dialog3.txt", "white");
     }
 
     private void negativeAnswer() throws IOException {
-        dialogsUtilities.printDialog("src/main/resources/woodmerchantdialogs/dialog4.txt", "yellow");
+        dialogsUtilities.printDialog("src/main/resources/merchantsdialogs/woodmerchantdialogs/dialog4.txt", "yellow");
     }
 }
 

@@ -26,8 +26,8 @@ public class RobberFireArm implements ICombatStyle {
 
     public void meetRobberWithFireArm() throws InterruptedException, IOException {
 
-        dialogsUtilities.printDialog("src/main/resources/robberfirearmdialogs/dialog1.txt", "yellow");
-        dialogsUtilities.printDialog("src/main/resources/robberfirearmdialogs/dialog2.txt", "white");
+        dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robberfirearmdialogs/dialog1.txt", "yellow");
+        dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robberfirearmdialogs/dialog2.txt", "white");
 
         moneyOrFight();
     }
@@ -46,7 +46,7 @@ public class RobberFireArm implements ICombatStyle {
 
     @Override
     public void fight() throws InterruptedException, IOException {
-        dialogsUtilities.printDialog("src/main/resources/robberfirearmdialogs/dialog3.txt", "yellow");
+        dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robberfirearmdialogs/dialog3.txt", "yellow");
 
         weaponUtilities.showTheWeaponYouFight();
 
@@ -64,19 +64,19 @@ public class RobberFireArm implements ICombatStyle {
     }
 
     private void swordShieldSelected() throws IOException {
-        dialogsUtilities.printDialog("src/main/resources/robberfirearmdialogs/dialog4.txt", "yellow");
-        dialogsUtilities.printDialog("src/main/resources/robberfirearmdialogs/dialog5.txt", "white");
+        dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robberfirearmdialogs/dialog4.txt", "yellow");
+        dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robberfirearmdialogs/dialog5.txt", "white");
         coins.addCoins(10);
     }
 
     private void twoHandedSwordSelected() throws IOException {
-        dialogsUtilities.printDialog("src/main/resources/robberfirearmdialogs/dialog6.txt", "white");
-        dialogsUtilities.printDialog("src/main/resources/robberfirearmdialogs/dialog7.txt", "yellow");
+        dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robberfirearmdialogs/dialog6.txt", "white");
+        dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robberfirearmdialogs/dialog7.txt", "yellow");
         coins.clearCoins();
         health.deleteHealthPoints(40);
         additional.playerDiesIfBelow0();
 
-        dialogsUtilities.printDialog("src/main/resources/robberfirearmdialogs/dialog8.txt", "white");
+        dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robberfirearmdialogs/dialog8.txt", "white");
         System.out.println(player.getHealthPoints());
 
 

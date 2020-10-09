@@ -1,6 +1,6 @@
 package npc.zakopane;
 
-import checker.WorkersChecker;
+import checker.PlaceChecker;
 import utilities.additionalutilities.Additional;
 import utilities.dialogsutilities.DialogsUtilities;
 import utilities.healthutilities.Health;
@@ -20,7 +20,7 @@ public class SawmillWorkerSwordShield implements ICombatStyle {
     private final Health health = new Health();
     private final Additional additional = new Additional();
 
-    private final WorkersChecker workersChecker = new WorkersChecker();
+    private final PlaceChecker placeChecker = new PlaceChecker();
     private final DialogsUtilities dialogsUtilities = new DialogsUtilities();
 
     public void meetSawmillWorkerSwordShield() throws InterruptedException, IOException {
@@ -82,6 +82,6 @@ public class SawmillWorkerSwordShield implements ICombatStyle {
         player.getListOfGoods().add(Goods.valueOf("WOOD"));
         dialogsUtilities.printDialog("src/main/resources/workersdialogs/sawmillworkerdialogs/dialog12.txt", "white");
 
-        workersChecker.setSawmillVisited();
+        placeChecker.setSawmillVisited();
     }
 }

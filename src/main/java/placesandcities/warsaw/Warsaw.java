@@ -1,6 +1,6 @@
 package placesandcities.warsaw;
 
-import checker.WorkersChecker;
+import checker.PlaceChecker;
 import checker.ICitiesChecker;
 import utilities.additionalutilities.Additional;
 import citiesActions.ICitiesActions;
@@ -26,7 +26,7 @@ public class Warsaw implements ICitiesActions, ICitiesChecker {
 
     private final ColorText colorText = new ColorText();
 
-    WorkersChecker workersChecker = new WorkersChecker();
+    PlaceChecker placeChecker = new PlaceChecker();
 
     @Override
     public void cityAction() throws InterruptedException, IOException {
@@ -106,7 +106,7 @@ public class Warsaw implements ICitiesActions, ICitiesChecker {
     public void checkIfYouWereHere() throws InterruptedException, IOException {
         Warsaw warsaw = new Warsaw();
 
-        if (workersChecker.isIronWorksVisited()) {
+        if (placeChecker.isIronWorksVisited()) {
             System.out.println(colorText.RED + "You have already been here!" + colorText.TEXTRESET);
         } else {
             warsaw.getIronWorksEmployeeMethod();

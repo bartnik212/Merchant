@@ -1,7 +1,6 @@
 package checker;
 
-
-public class WorkersChecker {
+public class PlaceChecker {
 
     private static boolean shipyardVisited;
     private static boolean ironWorksVisited;
@@ -32,3 +31,4 @@ public class WorkersChecker {
         sawmillVisited = true;
     }
 }
+

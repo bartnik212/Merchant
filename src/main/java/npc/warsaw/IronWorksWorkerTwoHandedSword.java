@@ -1,6 +1,6 @@
 package npc.warsaw;
 
-import checker.WorkersChecker;
+import checker.PlaceChecker;
 import utilities.additionalutilities.Additional;
 import utilities.dialogsutilities.DialogsUtilities;
 import utilities.healthutilities.Health;
@@ -20,7 +20,7 @@ public class IronWorksWorkerTwoHandedSword implements ICombatStyle {
     private final Health health = new Health();
     private final Additional additional = new Additional();
 
-    private final WorkersChecker workersChecker = new WorkersChecker();
+    private final PlaceChecker placeChecker = new PlaceChecker();
     private final DialogsUtilities dialogsUtilities = new DialogsUtilities();
 
     public void meetIronWorksEmployee() throws InterruptedException, IOException {
@@ -72,7 +72,7 @@ public class IronWorksWorkerTwoHandedSword implements ICombatStyle {
         System.out.println(Goods.valueOf("IRON"));
 
         player.getListOfGoods().add(Goods.valueOf("IRON"));
-        workersChecker.setIronWorksVisited();
+        placeChecker.setIronWorksVisited();
     }
 
     private void swordShieldSelected() throws IOException {

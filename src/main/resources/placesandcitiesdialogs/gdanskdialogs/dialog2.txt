@@ -1,0 +1,10 @@
+1. Meet with goods merchant
+2. Go on the trip on Motlawa (5 coins)
+3. Change the city (5 coins)
+4. Random action which can be something good to you, like for example, additional coin for you or
+ attack of evil robbers!
+5. Go to the shipyard and look for some goods
+6. Go to the weapon store
+7. Choose the weapon to fight
+8. Show your level of HP, coins, goods and weapon
+Now, what do you want to do? Please choose the number:

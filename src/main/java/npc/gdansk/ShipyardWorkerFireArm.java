@@ -1,6 +1,6 @@
 package npc.gdansk;
 
-import checker.WorkersChecker;
+import checker.PlaceChecker;
 import utilities.additionalutilities.Additional;
 import utilities.dialogsutilities.DialogsUtilities;
 import utilities.healthutilities.Health;
@@ -20,16 +20,16 @@ public class ShipyardWorkerFireArm implements ICombatStyle {
     private final WeaponUtilities weaponUtilities = new WeaponUtilities();
 
     private final DialogsUtilities dialogsUtilities = new DialogsUtilities();
-    private final WorkersChecker workersChecker = new WorkersChecker();
+    private final PlaceChecker placeChecker = new PlaceChecker();
 
 
     public void meetShipyardWorkerFireArm() throws InterruptedException, IOException {
 
-        dialogsUtilities.printDialog("src/main/resources/shipyardworkerdialogs/dialog1.txt", "white");
+        dialogsUtilities.printDialog("src/main/resources/workersdialogs/shipyardworkerdialogs/dialog1.txt", "white");
 
-        dialogsUtilities.printDialog("src/main/resources/shipyardworkerdialogs/dialog2.txt", "yellow");
+        dialogsUtilities.printDialog("src/main/resources/workersdialogs/shipyardworkerdialogs/dialog2.txt", "yellow");
 
-        dialogsUtilities.printDialog("src/main/resources/shipyardworkerdialogs/dialog3.txt", "white");
+        dialogsUtilities.printDialog("src/main/resources/workersdialogs/shipyardworkerdialogs/dialog3.txt", "white");
 
         fightOrLeave();
     }
@@ -50,7 +50,7 @@ public class ShipyardWorkerFireArm implements ICombatStyle {
 
     @Override
     public void fight() throws InterruptedException, IOException {
-        dialogsUtilities.printDialog("src/main/resources/shipyardworkerdialogs/dialog4.txt", "yellow");
+        dialogsUtilities.printDialog("src/main/resources/workersdialogs/shipyardworkerdialogs/dialog4.txt", "yellow");
 
         weaponUtilities.showTheWeaponYouFight();
         additional.wait5Seconds();
@@ -74,23 +74,23 @@ public class ShipyardWorkerFireArm implements ICombatStyle {
 
 
     private void twoHandedSwordSelected() throws IOException {
-        dialogsUtilities.printDialog("src/main/resources/shipyardworkerdialogs/dialog7.txt", "white");
-        dialogsUtilities.printDialog("src/main/resources/shipyardworkerdialogs/dialog8.txt", "yellow");
+        dialogsUtilities.printDialog("src/main/resources/workersdialogs/shipyardworkerdialogs/dialog7.txt", "white");
+        dialogsUtilities.printDialog("src/main/resources/workersdialogs/shipyardworkerdialogs/dialog8.txt", "yellow");
 
         health.deleteHealthPoints(50);
         additional.playerDiesIfBelow0();
-        dialogsUtilities.printDialog("src/main/resources/shipyardworkerdialogs/dialog9.txt", "white");
+        dialogsUtilities.printDialog("src/main/resources/workersdialogs/shipyardworkerdialogs/dialog9.txt", "white");
         System.out.println(player.getHealthPoints());
     }
 
     private void swordShieldSelected() throws IOException {
-        dialogsUtilities.printDialog("src/main/resources/shipyardworkerdialogs/dialog5.txt", "yellow");
+        dialogsUtilities.printDialog("src/main/resources/workersdialogs/shipyardworkerdialogs/dialog5.txt", "yellow");
         player.getListOfGoods().add(Goods.valueOf("METAL"));
 
-        dialogsUtilities.printDialog("src/main/resources/shipyardworkerdialogs/dialog6.txt", "white");
+        dialogsUtilities.printDialog("src/main/resources/workersdialogs/shipyardworkerdialogs/dialog6.txt", "white");
         System.out.println(Goods.valueOf("METAL"));
 
-        workersChecker.setShipyardVisited();
+        placeChecker.setShipyardVisited();
     }
 
 

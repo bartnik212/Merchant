@@ -33,6 +33,8 @@ public class DialogsUtilities {
             chosenColor = colorText.YELLOW;
         } else if (color.equalsIgnoreCase("red")) {
             chosenColor = colorText.RED;
+        } else if (color.equalsIgnoreCase("blue")) {
+            chosenColor = colorText.BLUE;
         } else {
             chosenColor = colorText.WHITE;
         }

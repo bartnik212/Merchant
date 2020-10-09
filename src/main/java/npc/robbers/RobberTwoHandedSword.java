@@ -24,8 +24,8 @@ public class RobberTwoHandedSword implements ICombatStyle {
 
     public void meetRobberWithTwoHanded() throws InterruptedException, IOException {
 
-        dialogsUtilities.printDialog("src/main/resources/robbertwohandedsworddialogs/dialog1.txt", "yellow");
-        dialogsUtilities.printDialog("src/main/resources/robbertwohandedsworddialogs/dialog2.txt", "white");
+        dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robbertwohandedsworddialogs/dialog1.txt", "yellow");
+        dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robbertwohandedsworddialogs/dialog2.txt", "white");
 
         moneyOrFight();
     }
@@ -44,7 +44,7 @@ public class RobberTwoHandedSword implements ICombatStyle {
 
     @Override
     public void fight() throws InterruptedException, IOException {
-        dialogsUtilities.printDialog("src/main/resources/robbertwohandedsworddialogs/dialog3.txt", "yellow");
+        dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robbertwohandedsworddialogs/dialog3.txt", "yellow");
 
         weaponUtilities.showTheWeaponYouFight();
         additional.wait5Seconds();
@@ -62,19 +62,19 @@ public class RobberTwoHandedSword implements ICombatStyle {
     }
 
     private void swordShieldSelected() throws IOException {
-        dialogsUtilities.printDialog("src/main/resources/robbertwohandedsworddialogs/dialog6.txt", "white");
-        dialogsUtilities.printDialog("src/main/resources/robbertwohandedsworddialogs/dialog7.txt", "yellow");
+        dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robbertwohandedsworddialogs/dialog6.txt", "white");
+        dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robbertwohandedsworddialogs/dialog7.txt", "yellow");
 
         coins.clearCoins();
         health.deleteHealthPoints(40);
         additional.playerDiesIfBelow0();
 
-        dialogsUtilities.printDialog("src/main/resources/robbertwohandedsworddialogs/dialog8.txt", "white");
+        dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robbertwohandedsworddialogs/dialog8.txt", "white");
     }
 
     private void fireArmSelected() throws IOException {
-        dialogsUtilities.printDialog("src/main/resources/robbertwohandedsworddialogs/dialog4.txt", "yellow");
-        dialogsUtilities.printDialog("src/main/resources/robbertwohandedsworddialogs/dialog5.txt", "white");
+        dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robbertwohandedsworddialogs/dialog4.txt", "yellow");
+        dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robbertwohandedsworddialogs/dialog5.txt", "white");
         player.setCoins(player.getCoins() + 10);
     }
 }

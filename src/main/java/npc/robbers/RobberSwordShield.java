@@ -24,8 +24,8 @@ public class RobberSwordShield implements ICombatStyle {
 
     public void meetRobberWithSwordShield() throws InterruptedException, IOException {
 
-        dialogsUtilities.printDialog("src/main/resources/robberswordshielddialogs/dialog1.txt", "yellow");
-        dialogsUtilities.printDialog("src/main/resources/robberswordshielddialogs/dialog2.txt", "white");
+        dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robberswordshielddialogs/dialog1.txt", "yellow");
+        dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robberswordshielddialogs/dialog2.txt", "white");
 
 
         moneyOrFight();
@@ -46,7 +46,7 @@ public class RobberSwordShield implements ICombatStyle {
 
     @Override
     public void fight() throws InterruptedException, IOException {
-        dialogsUtilities.printDialog("src/main/resources/robberswordshielddialogs/dialog3.txt", "yellow");
+        dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robberswordshielddialogs/dialog3.txt", "yellow");
 
         weaponUtilities.showTheWeaponYouFight();
         additional.wait5Seconds();
@@ -63,20 +63,20 @@ public class RobberSwordShield implements ICombatStyle {
     }
 
     private void twoHandedSwordSelected() throws IOException {
-        dialogsUtilities.printDialog("src/main/resources/robberswordshielddialogs/dialog4.txt", "yellow");
+        dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robberswordshielddialogs/dialog4.txt", "yellow");
         player.setCoins(player.getCoins() + 10);
-        dialogsUtilities.printDialog("src/main/resources/robberswordshielddialogs/dialog5.txt", "white");
+        dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robberswordshielddialogs/dialog5.txt", "white");
     }
 
     private void fireArmSelected() throws IOException {
-        dialogsUtilities.printDialog("src/main/resources/robberswordshielddialogs/dialog6.txt", "white");
+        dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robberswordshielddialogs/dialog6.txt", "white");
 
         health.deleteHealthPoints(40);
         additional.playerDiesIfBelow0();
         coins.clearCoins();
 
-        dialogsUtilities.printDialog("src/main/resources/robberswordshielddialogs/dialog7.txt", "yellow");
-        dialogsUtilities.printDialog("src/main/resources/robberswordshielddialogs/dialog8.txt", "white");
+        dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robberswordshielddialogs/dialog7.txt", "yellow");
+        dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robberswordshielddialogs/dialog8.txt", "white");
 
     }
 }
