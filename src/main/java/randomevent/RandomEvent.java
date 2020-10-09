@@ -6,6 +6,7 @@ import model.Player;
 import npc.robbers.RobberFireArm;
 import npc.robbers.RobberTwoHandedSword;
 import npc.robbers.RobberSwordShield;
+import utilities.dialogsutilities.DialogsUtilities;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -22,6 +23,8 @@ public class RandomEvent {
     private final Player player = new Player();
 
     private static final Random random = new Random();
+
+    private final DialogsUtilities dialogsUtilities = new DialogsUtilities();
 
     public  void generateRandomEvent() throws InterruptedException, IOException {
         int randomNumber = random.nextInt(5);
@@ -45,17 +48,15 @@ public class RandomEvent {
         }
     }
 
-    private void findPurseOfGold() {
-        System.out.println("*You were walking through the city looking for goods and something to do,\n" +
-                "and then suddenly you noticed something glittering on the ground.\n" +
-                "As you approached, it turned out that someone had lost a purse of gold!*\n\n" +
-                "*15 gold added to your purse*" );
+    private void findPurseOfGold() throws IOException {
+
+        dialogsUtilities.printDialog("src/main/resources/randomeventsdialogs/dialog1.txt", "white");
 
         coins.addCoins(15);
     }
 
 
-    private void findSomeMaterial()  {
+    private void findSomeMaterial() throws IOException {
         List<Goods> materialList = new LinkedList<>(List.of(Goods.valueOf("METAL"),
                 Goods.valueOf("IRON"), Goods.valueOf("WOOD")));
 
@@ -65,8 +66,9 @@ public class RandomEvent {
 
         player.getListOfGoods().add(good);
 
-        System.out.println("*You found " + good + " on a stall!*\n\n" +
-                "* " + good + " added yo your equipment*" );
+        dialogsUtilities.printDialog("src/main/resources/randomeventsdialogs/dialog2.txt", "white");
+        System.out.println(good);
+        dialogsUtilities.printDialog("src/main/resources/randomeventsdialogs/dialog3.txt", "white");
 
     }
 
