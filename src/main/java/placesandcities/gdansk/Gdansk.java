@@ -1,6 +1,6 @@
 package placesandcities.gdansk;
 
-import checker.CitiesChecker;
+import checker.WorkersChecker;
 import checker.ICitiesChecker;
 import utilities.additionalutilities.Additional;
 import citiesActions.ICitiesActions;
@@ -11,7 +11,6 @@ import randomevent.RandomEvent;
 import utilities.weaponutilities.WeaponUtilities;
 import textcolor.ColorText;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -28,7 +27,7 @@ public class Gdansk implements ICitiesActions, ICitiesChecker {
     private final ColorText colorText = new ColorText();
     private final String textReset = colorText.TEXTRESET;
 
-    CitiesChecker citiesChecker = new CitiesChecker();
+    WorkersChecker workersChecker = new WorkersChecker();
 
     @Override
     public void cityAction() throws InterruptedException, IOException {
@@ -104,7 +103,7 @@ public class Gdansk implements ICitiesActions, ICitiesChecker {
     public void checkIfYouWereHere() throws InterruptedException, IOException {
         Gdansk gdansk = new Gdansk();
 
-        if (citiesChecker.isShipyardVisited()) {
+        if (workersChecker.isShipyardVisited()) {
             System.out.println(colorText.RED + "You have already been here!" + textReset);
         } else {
             gdansk.getShipyardWorkerMethod();

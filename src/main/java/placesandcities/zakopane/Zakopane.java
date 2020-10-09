@@ -1,17 +1,16 @@
 package placesandcities.zakopane;
 
-import checker.CitiesChecker;
+import checker.WorkersChecker;
 import checker.ICitiesChecker;
 import utilities.additionalutilities.Additional;
 import citiesActions.ICitiesActions;
 import model.Player;
 import npc.zakopane.IronMerchant;
-import npc.zakopane.SamwillWorkerSwordShield;
+import npc.zakopane.SawmillWorkerSwordShield;
 import randomevent.RandomEvent;
 import utilities.weaponutilities.WeaponUtilities;
 import textcolor.ColorText;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -22,12 +21,12 @@ public class Zakopane implements ICitiesActions, ICitiesChecker {
     private final Additional additional = new Additional();
     private final IronMerchant ironMerchant = new IronMerchant();
     private final RandomEvent randomEvent = new RandomEvent();
-    private final SamwillWorkerSwordShield samwillWorkerSwordShield = new SamwillWorkerSwordShield();
+    private final SawmillWorkerSwordShield sawmillWorkerSwordShield = new SawmillWorkerSwordShield();
 
     private final ColorText colorText = new ColorText();
     private final String textReset = colorText.TEXTRESET;
 
-    CitiesChecker citiesChecker = new CitiesChecker();
+    WorkersChecker workersChecker = new WorkersChecker();
 
 
     @Override
@@ -81,7 +80,7 @@ public class Zakopane implements ICitiesActions, ICitiesChecker {
         } while (number != 3);
     }
 
-    private void getIronMerchantMethod() {
+    private void getIronMerchantMethod() throws IOException {
         ironMerchant.meetIronMerchant();
     }
 
@@ -100,18 +99,18 @@ public class Zakopane implements ICitiesActions, ICitiesChecker {
     }
 
     @Override
-    public void checkIfYouWereHere() throws InterruptedException {
+    public void checkIfYouWereHere() throws InterruptedException, IOException {
         Zakopane zakopane = new Zakopane();
 
-        if (citiesChecker.isSawmillVisited()) {
+        if (workersChecker.isSawmillVisited()) {
             System.out.println(colorText.RED + "You have already been here!" + textReset);
         } else {
             zakopane.getSamwillWorkerMethod();
         }
     }
 
-    private void getSamwillWorkerMethod() throws InterruptedException {
-        samwillWorkerSwordShield.meetSamwillWorkerSwordShield();
+    private void getSamwillWorkerMethod() throws InterruptedException, IOException {
+        sawmillWorkerSwordShield.meetSawmillWorkerSwordShield();
     }
 
 }

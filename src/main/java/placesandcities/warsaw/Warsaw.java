@@ -1,6 +1,6 @@
 package placesandcities.warsaw;
 
-import checker.CitiesChecker;
+import checker.WorkersChecker;
 import checker.ICitiesChecker;
 import utilities.additionalutilities.Additional;
 import citiesActions.ICitiesActions;
@@ -11,7 +11,6 @@ import randomevent.RandomEvent;
 import utilities.weaponutilities.WeaponUtilities;
 import textcolor.ColorText;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -27,7 +26,7 @@ public class Warsaw implements ICitiesActions, ICitiesChecker {
 
     private final ColorText colorText = new ColorText();
 
-    CitiesChecker citiesChecker = new CitiesChecker();
+    WorkersChecker workersChecker = new WorkersChecker();
 
     @Override
     public void cityAction() throws InterruptedException, IOException {
@@ -92,7 +91,7 @@ public class Warsaw implements ICitiesActions, ICitiesChecker {
         }
     }
 
-    private void getMetalMerchantMethod() {
+    private void getMetalMerchantMethod() throws IOException {
         metalMerchant.meetMetalMerchant();
 
     }
@@ -107,7 +106,7 @@ public class Warsaw implements ICitiesActions, ICitiesChecker {
     public void checkIfYouWereHere() throws InterruptedException, IOException {
         Warsaw warsaw = new Warsaw();
 
-        if (citiesChecker.isIronWorksVisited()) {
+        if (workersChecker.isIronWorksVisited()) {
             System.out.println(colorText.RED + "You have already been here!" + colorText.TEXTRESET);
         } else {
             warsaw.getIronWorksEmployeeMethod();

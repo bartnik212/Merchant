@@ -1,6 +1,6 @@
 package npc.gdansk;
 
-import checker.CitiesChecker;
+import checker.WorkersChecker;
 import utilities.additionalutilities.Additional;
 import utilities.dialogsutilities.DialogsUtilities;
 import utilities.healthutilities.Health;
@@ -20,7 +20,7 @@ public class ShipyardWorkerFireArm implements ICombatStyle {
     private final WeaponUtilities weaponUtilities = new WeaponUtilities();
 
     private final DialogsUtilities dialogsUtilities = new DialogsUtilities();
-    private final CitiesChecker citiesChecker = new CitiesChecker();
+    private final WorkersChecker workersChecker = new WorkersChecker();
 
 
     public void meetShipyardWorkerFireArm() throws InterruptedException, IOException {
@@ -90,7 +90,7 @@ public class ShipyardWorkerFireArm implements ICombatStyle {
         dialogsUtilities.printDialog("src/main/resources/shipyardworkerdialogs/dialog6.txt", "white");
         System.out.println(Goods.valueOf("METAL"));
 
-        citiesChecker.setShipyardVisited();
+        workersChecker.setShipyardVisited();
     }
 
 

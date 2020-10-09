@@ -1,7 +1,7 @@
 package checker;
 
 
-public class CitiesChecker {
+public class WorkersChecker {
 
     private static boolean shipyardVisited;
     private static boolean ironWorksVisited;
