@@ -84,7 +84,7 @@ public class Gdansk implements ICitiesActions, ICitiesChecker {
         }
     }
 
-    private void getMotlawaMethod() {
+    private void getMotlawaMethod() throws IOException {
         Motlawa motlawa = new Motlawa();
         motlawa.relax();
     }

@@ -21,32 +21,33 @@ public class Additional {
 
     private final ColorText colorText = new ColorText();
     private final String red = colorText.RED;
+    private final String white = colorText.WHITE;
     private final String textReset = colorText.TEXTRESET;
 
 
     public void chooseCity() throws InterruptedException, IOException {
-        System.out.println("Here you have a list of cities where you can go :" + Arrays.toString(City.values()));
+        System.out.println(white + "Here you have a list of cities where you can go :" + Arrays.toString(City.values()) + textReset);
 
         Scanner scanner = new Scanner(System.in);
         String city = scanner.nextLine();
 
         switch (city.toUpperCase()) {
             case "GDANSK":
-                System.out.println("*You chose the journey to Gdansk which costs you 5 coins*\n");
+                System.out.println(white + "*You chose the journey to Gdansk which costs you 5 coins*\n" + textReset);
                 player.setCoins(player.getCoins() - 5);
                 Gdansk gdansk = new Gdansk();
                 gdansk.cityAction();
                 break;
 
             case "WARSAW":
-                System.out.println("*You are going to Warsaw. The cost of the trip is 5 coins*\n");
+                System.out.println(white + "*You are going to Warsaw. The cost of the trip is 5 coins*\n" + textReset);
                 player.setCoins(player.getCoins() - 5);
                 Warsaw warsaw = new Warsaw();
                 warsaw.cityAction();
                 break;
 
             case "ZAKOPANE":
-                System.out.println("*Everywhere you look you see mountains on the horizon. You are in Zakopane!*\n");
+                System.out.println(white + "*Everywhere you look you see mountains on the horizon. You are in Zakopane!*\n" + textReset);
                 player.setCoins(player.getCoins() - 5);
                 Zakopane zakopane = new Zakopane();
                 zakopane.cityAction();
@@ -71,11 +72,11 @@ public class Additional {
     public void statusOfPlayer() {
         Player player = new Player();
 
-        System.out.println("Your HP: " + player.getHealthPoints() + "\n" +
+        System.out.println(white + "Your HP: " + player.getHealthPoints() + "\n" +
                 "Your coins: " + player.getCoins() + "\n" +
                 "Your goods: " + player.getListOfGoods() + "\n" +
                 "Your available weapon: " + player.getListOfWeapon() + "\n" +
-                "Your weapons selected is: " + player.getWeapon().toUpperCase() + "\n");
+                "Your weapons selected is: " + player.getWeapon().toUpperCase() + "\n" + textReset);
     }
 
     public void sameGunAsEnemyDuringAFight() {
@@ -83,12 +84,12 @@ public class Additional {
         Health health = new Health();
         Additional additional = new Additional();
 
-        System.out.println("*It turns out that you both have the same type of weapon.\n" +
-                "You injured yourself badly, but no one took anything from anyone.*\n");
+        System.out.println(white + "*It turns out that you both have the same type of weapon.\n" +
+                "You injured yourself badly, but no one took anything from anyone.*\n" + textReset);
 
         health.deleteHealthPoints(30);
         additional.playerDiesIfBelow0();
-        System.out.println("*After the fight, you have " + player.getHealthPoints() + " hp left*\n");
+        System.out.println(white + "*After the fight, you have " + player.getHealthPoints() + " hp left*\n" + textReset);
     }
 
     public void wait5Seconds() throws InterruptedException {

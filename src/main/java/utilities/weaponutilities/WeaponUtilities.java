@@ -91,26 +91,26 @@ public class WeaponUtilities {
 
     public void buyWeapon() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("WEAPON STORE WORKER: Hello Merchant! I can see that you need some weapon! The price is 10 coins for the weapon.\n" +
+        System.out.println(colorText.YELLOW + "WEAPON STORE WORKER: Hello Merchant! I can see that you need some weapon! The price is 10 coins for the weapon.\n" +
                 "Please, take a look at my store..\n" +
-                Arrays.toString(Weapon.values()));
+                Arrays.toString(Weapon.values()) + colorText.TEXTRESET);
 
         String weapon = scanner.nextLine();
         int actualCoins = player.getCoins();
         int coinsAfterTheTrade = actualCoins - 10;
 
         if (player.getListOfWeapon().contains(model.Weapon.valueOf(weapon.toUpperCase()))) {
-            System.out.println("*You already have this type of weapon!*\n");
+            System.out.println(colorText.RED + "*You already have this type of weapon!*\n" + colorText.TEXTRESET);
 
         } else if (coinsAfterTheTrade < 0) {
-            System.out.println("*You don't have enough money to buy weapon!*\n");
+            System.out.println(colorText.RED + "*You don't have enough money to buy weapon!*\n" + colorText.TEXTRESET);
 
         } else {
             player.getListOfWeapon().add(model.Weapon.valueOf(weapon.toUpperCase()));
-            System.out.println("*You just have bought " + weapon.substring(0, 1).toUpperCase()
-                    + weapon.substring(1) + "*\n");
+            System.out.println(colorText.WHITE + "*You just have bought " + weapon.substring(0, 1).toUpperCase()
+                    + weapon.substring(1) + "*\n" + colorText.TEXTRESET);
             player.setCoins(actualCoins - 10);
-            System.out.println("*Your coins: " + player.getCoins() + "*\n");
+            System.out.println(colorText.WHITE + "*Your coins: " + player.getCoins() + "*\n" + colorText.TEXTRESET);
         }
     }
 
