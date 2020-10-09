@@ -1,20 +1,23 @@
 package placesandcities.zakopane;
 
+import utilities.dialogsutilities.DialogsUtilities;
 import utilities.healthutilities.Health;
 import model.Player;
 import relaxtype.IRelaxType;
-import textcolor.ColorText;
+
+import java.io.IOException;
 
 public class Gubalowka implements IRelaxType {
+
+    private final DialogsUtilities dialogsUtilities = new DialogsUtilities();
 
     private final Health health = new Health();
     private final Player player = new Player();
 
     @Override
-    public void relax() {
-        System.out.println( "*You stroll through a wide gubałówka, where traders constantly encourage you to buy their products.\n" +
-                "The smell of oscypek is everywhere. You love such a climate.\n" +
-                "You feel great, and your health points have increased to the maximum*\n" );
+    public void relax() throws IOException {
+        dialogsUtilities.printDialog("src/main/resources/placesandcitiesdialogs/gubalowkadialogs/dialog1.txt", "white");
+
         health.fillHealthPoints();
         player.setCoins(player.getCoins() - 5);
     }

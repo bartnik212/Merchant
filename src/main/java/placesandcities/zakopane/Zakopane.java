@@ -8,6 +8,7 @@ import model.Player;
 import npc.zakopane.IronMerchant;
 import npc.zakopane.SawmillWorkerSwordShield;
 import randomevent.RandomEvent;
+import utilities.dialogsutilities.DialogsUtilities;
 import utilities.weaponutilities.WeaponUtilities;
 import textcolor.ColorText;
 
@@ -26,29 +27,21 @@ public class Zakopane implements ICitiesActions, ICitiesChecker {
     private final ColorText colorText = new ColorText();
     private final String textReset = colorText.TEXTRESET;
 
-    PlaceChecker placeChecker = new PlaceChecker();
+    private final DialogsUtilities dialogsUtilities = new DialogsUtilities();
+    private final PlaceChecker placeChecker = new PlaceChecker();
+
+    private final Scanner scanner = new Scanner(System.in);
 
 
     @Override
     public void cityAction() throws InterruptedException, IOException {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("You are in the mountains!\n" +
-                "Here you have 8 scenarios :\n");
+        dialogsUtilities.printDialog("src/main/resources/placesandcitiesdialogs/zakopanedialogs/dialog1.txt", "white");
 
         int number;
         do {
-            String blue = colorText.BLUE;
-            System.out.println(blue + "1. Meet with goods merchant\n" +
-                    "2. Go on the trip to Gubalowka (5 coins) \n" +
-                    "3. Change the city (5 coins) \n" +
-                    "4. Random action which can be something good to you, like for example, additional coin for you or" +
-                    " attack of evil robbers!\n" +
-                    "5. Go to the the forest near the mountains for some goods\n" +
-                    "6. Go to the weapon store\n" +
-                    "7. Choose the weapon to fight\n" +
-                    "8. Show your level of HP, coins, goods and weapon\n" +
-                    "Now, what do you want to do? Please choose the number: " + textReset);
+            dialogsUtilities.printDialog("src/main/resources/placesandcitiesdialogs/zakopanedialogs/dialog2.txt", "blue");
+
             number = scanner.nextInt();
             Zakopane zakopane = new Zakopane();
 
@@ -84,16 +77,15 @@ public class Zakopane implements ICitiesActions, ICitiesChecker {
         ironMerchant.meetIronMerchant();
     }
 
-    private void ifEnoughMoneyGoToGubalowka() {
+    private void ifEnoughMoneyGoToGubalowka() throws IOException {
         if (player.getCoins() == 0) {
-            String red = colorText.RED;
-            System.out.println(red + "*You don't have enough money to go to Gubalowka!*" + textReset);
+            dialogsUtilities.printDialog("src/main/resources/placesandcitiesdialogs/zakopanedialogs/dialog3.txt", "red");
         } else {
             getGubalowkaMethod();
         }
     }
 
-    private void getGubalowkaMethod() {
+    private void getGubalowkaMethod() throws IOException {
         Gubalowka gubalowka = new Gubalowka();
         gubalowka.relax();
     }
@@ -103,7 +95,8 @@ public class Zakopane implements ICitiesActions, ICitiesChecker {
         Zakopane zakopane = new Zakopane();
 
         if (placeChecker.isSawmillVisited()) {
-            System.out.println(colorText.RED + "You have already been here!" + textReset);
+            dialogsUtilities.printDialog("src/main/resources/placesandcitiesdialogs/zakopanedialogs/dialog4.txt", "red");
+
         } else {
             zakopane.getSamwillWorkerMethod();
         }
