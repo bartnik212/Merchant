@@ -32,7 +32,6 @@ public class WoodMerchant {
 
             dialogsUtilities.printDialog("src/main/resources/woodmerchantdialogs/hello.txt", "yellow");
             System.out.println(woodMerchant.getName());
-
             dialogsUtilities.printDialog("src/main/resources/woodmerchantdialogs/dialog1.txt", "yellow");
 
             yesOrNo();
@@ -41,7 +40,6 @@ public class WoodMerchant {
 
             dialogsUtilities.printDialog("src/main/resources/woodmerchantdialogs/hello.txt", "yellow");
             System.out.println(woodMerchant.getName());
-
             dialogsUtilities.printDialog("src/main/resources/woodmerchantdialogs/dialog2.txt", "yellow");
 
         }
@@ -62,15 +60,15 @@ public class WoodMerchant {
 
     }
 
-    private void negativeAnswer() throws IOException {
-        dialogsUtilities.printDialog("src/main/resources/woodmerchantdialogs/dialog4.txt", "yellow");
-    }
-
     private void positiveAnswer() throws IOException {
         player.getListOfGoods().remove(Goods.valueOf("WOOD"));
         player.setCoins(player.getCoins() + 10);
 
         dialogsUtilities.printDialog("src/main/resources/woodmerchantdialogs/dialog3.txt", "white");
+    }
+
+    private void negativeAnswer() throws IOException {
+        dialogsUtilities.printDialog("src/main/resources/woodmerchantdialogs/dialog4.txt", "yellow");
     }
 }
 

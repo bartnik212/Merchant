@@ -8,8 +8,8 @@ import java.util.Scanner;
 
 public class IronMerchant {
     private final Player player = new Player();
-
     private String name;
+    private final ColorText colorText = new ColorText();
 
     public String getName() {
         return name;
@@ -18,8 +18,6 @@ public class IronMerchant {
     public void setName(String name) {
         this.name = name;
     }
-
-    private final ColorText colorText = new ColorText();
 
     public void meetIronMerchant() {
         Scanner scanner = new Scanner(System.in);
