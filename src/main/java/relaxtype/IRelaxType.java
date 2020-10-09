@@ -1,6 +1,8 @@
 package relaxtype;
 
+import java.io.IOException;
+
 public interface IRelaxType {
 
-    void relax();
+    void relax() throws IOException;
 }
