@@ -8,8 +8,8 @@ import model.Player;
 import npc.warsaw.IronWorksWorkerTwoHandedSword;
 import npc.warsaw.MetalMerchant;
 import randomevent.RandomEvent;
+import utilities.dialogsutilities.DialogsUtilities;
 import utilities.weaponutilities.WeaponUtilities;
-import textcolor.ColorText;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -24,32 +24,21 @@ public class Warsaw implements ICitiesActions, ICitiesChecker {
     private final IronWorksWorkerTwoHandedSword ironWorksWorkerTwoHandedSword = new IronWorksWorkerTwoHandedSword();
     private final RandomEvent randomEvent = new RandomEvent();
 
-    private final ColorText colorText = new ColorText();
+    private final DialogsUtilities dialogsUtilities = new DialogsUtilities();
+    private final PlaceChecker placeChecker = new PlaceChecker();
 
-    PlaceChecker placeChecker = new PlaceChecker();
+    private final Scanner scanner = new Scanner(System.in);
 
     @Override
     public void cityAction() throws InterruptedException, IOException {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Let's see what opportunities you can find in Warsaw\n" +
-                "You have 8 scenarios :\n");
+        dialogsUtilities.printDialog("src/main/resources/placesandcitiesdialogs/warsawdialogs/dialog1.txt", "white");
 
         int number;
 
         do {
-            String blue = colorText.BLUE;
-            String textReset = colorText.TEXTRESET;
-            System.out.println(blue + "1. Meet with goods merchant\n" +
-                    "2. Go to the Vistula River (5 coins) \n" +
-                    "3. Change the city (5 coins) \n" +
-                    "4. Random action which can be something good to you, like for example, additional coin for you or" +
-                    " attack of evil robbers!\n" +
-                    "5. Go to the Ironworks and look for some goods\n" +
-                    "6. Go to the weapon store\n" +
-                    "7. Choose the weapon to fight\n" +
-                    "8. Show your level of HP, coins, goods and weapon\n" +
-                    "Now, what do you want to do? Please choose the number: " + textReset);
+            dialogsUtilities.printDialog("src/main/resources/placesandcitiesdialogs/warsawdialogs/dialog2.txt", "blue");
+
             number = scanner.nextInt();
             Warsaw warsaw = new Warsaw();
             switch (number) {
@@ -82,10 +71,11 @@ public class Warsaw implements ICitiesActions, ICitiesChecker {
 
     }
 
-    private void ifEnoughMoneyGoToVistula() {
+    private void ifEnoughMoneyGoToVistula() throws IOException {
         if (player.getCoins() == 0) {
-            String red = colorText.RED;
-            System.out.println(red + "*You don't have enough money to go to Vistula!*" + red);
+
+            dialogsUtilities.printDialog("src/main/resources/placesandcitiesdialogs/warsawdialogs/dialog3.txt", "white");
+
         } else {
             getVistulaMethod();
         }
@@ -96,7 +86,7 @@ public class Warsaw implements ICitiesActions, ICitiesChecker {
 
     }
 
-    private void getVistulaMethod() {
+    private void getVistulaMethod() throws IOException {
         Vistula vistula = new Vistula();
         vistula.relax();
     }
@@ -107,7 +97,8 @@ public class Warsaw implements ICitiesActions, ICitiesChecker {
         Warsaw warsaw = new Warsaw();
 
         if (placeChecker.isIronWorksVisited()) {
-            System.out.println(colorText.RED + "You have already been here!" + colorText.TEXTRESET);
+            dialogsUtilities.printDialog("src/main/resources/placesandcitiesdialogs/warsawdialogs/dialog4.txt", "red");
+
         } else {
             warsaw.getIronWorksEmployeeMethod();
         }
