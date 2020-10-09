@@ -2,14 +2,17 @@ package npc.zakopane;
 
 import model.Goods;
 import model.Player;
-import textcolor.ColorText;
+import utilities.dialogsutilities.DialogsUtilities;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class IronMerchant {
-    private final Player player = new Player();
+
     private String name;
-    private final ColorText colorText = new ColorText();
+
+    private final Player player = new Player();
+    private final DialogsUtilities dialogsUtilities = new DialogsUtilities();
 
     public String getName() {
         return name;
@@ -19,34 +22,48 @@ public class IronMerchant {
         this.name = name;
     }
 
-    public void meetIronMerchant() {
-        Scanner scanner = new Scanner(System.in);
+
+    public void meetIronMerchant() throws IOException {
         IronMerchant ironMerchant = new IronMerchant();
         ironMerchant.setName("Frideric");
 
-        String yellow = colorText.YELLOW;
-        String textreset = colorText.TEXTRESET;
+
         if (player.getListOfGoods().contains(Goods.valueOf("IRON"))) {
-            System.out.println(yellow + "IRON MERCHANT: Hello, weary traveler!\n" +
-                    "My name is " + ironMerchant.getName() + " If you have some iron, I will buy it from you willingly! [Y/N]" + textreset);
 
-            String answer = scanner.nextLine();
+            dialogsUtilities.printDialog("src/main/resources/ironmerchantdialogs/hello.txt", "yellow");
+            System.out.println(ironMerchant.getName());
+            dialogsUtilities.printDialog("src/main/resources/ironmerchantdialogs/dialog1.txt", "yellow");
 
-            if (answer.toUpperCase().equalsIgnoreCase("y")) {
-                player.getListOfGoods().remove(Goods.valueOf("IRON"));
-                player.setCoins(player.getCoins() + 10);
-
-                System.out.println("*1 Iron sold*\n" +
-                        "*10 coins added to your pocket*\n");
-
-            } else {
-                System.out.println(yellow + "IRON MERCHANT: Ok, no problem. If you change my mind you know where to find me." + textreset);
-            }
+            yesOrNo();
         } else {
-            System.out.println(yellow + "IRON MERCHANT: Hello, weary traveler!\n" +
-                    "I can see thay you have no iron.\n" +
-                    "If you have some, yo know where to find me.\n" + textreset);
-        }
+            dialogsUtilities.printDialog("src/main/resources/ironmerchantdialogs/hello.txt", "yellow");
+            System.out.println(ironMerchant.getName());
+            dialogsUtilities.printDialog("src/main/resources/ironmerchantdialogs/dialog2.txt", "yellow");
 
+        }
+    }
+
+    private void yesOrNo() throws IOException {
+        Scanner scanner = new Scanner(System.in);
+        String answer = scanner.nextLine();
+
+        if (answer.toUpperCase().equalsIgnoreCase("y")) {
+
+            positiveAnswer();
+
+        } else {
+            negativeAnswer();
+        }
+    }
+
+    private void positiveAnswer() throws IOException {
+        player.getListOfGoods().remove(Goods.valueOf("IRON"));
+        player.setCoins(player.getCoins() + 10);
+
+        dialogsUtilities.printDialog("src/main/resources/ironmerchantdialogs/dialog3.txt", "white");
+    }
+
+    private void negativeAnswer() throws IOException {
+        dialogsUtilities.printDialog("src/main/resources/ironmerchantdialogs/dialog4.txt", "yellow");
     }
 }

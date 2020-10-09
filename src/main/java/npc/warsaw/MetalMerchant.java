@@ -24,7 +24,6 @@ public class MetalMerchant {
 
 
     public void meetMetalMerchant() throws IOException {
-        Player player = new Player();
         MetalMerchant metalMerchant = new MetalMerchant();
         metalMerchant.setName("Christopher");
 
@@ -42,7 +41,6 @@ public class MetalMerchant {
             System.out.println(metalMerchant.getName());
             dialogsUtilities.printDialog("src/main/resources/metalmerchantdialogs/dialog2.txt", "yellow");
         }
-
     }
 
     private void yesOrNo() throws IOException {
