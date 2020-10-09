@@ -1,5 +1,6 @@
 package npc.robbers;
 
+import gamewon.WinningGame;
 import utilities.additionalutilities.Additional;
 import utilities.coinsutilities.Coins;
 import utilities.dialogsutilities.DialogsUtilities;
@@ -14,6 +15,8 @@ import java.util.Scanner;
 public class RobberTwoHandedSword implements ICombatStyle {
 
     private final Player player = new Player();
+
+    private final WinningGame winningGame = new WinningGame();
     private final Coins coins = new Coins();
     private final WeaponUtilities weaponUtilities = new WeaponUtilities();
     private final Health health = new Health();
@@ -72,9 +75,11 @@ public class RobberTwoHandedSword implements ICombatStyle {
         dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robbertwohandedsworddialogs/dialog8.txt", "white");
     }
 
-    private void fireArmSelected() throws IOException {
+    private void fireArmSelected() throws IOException, InterruptedException {
         dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robbertwohandedsworddialogs/dialog4.txt", "yellow");
         dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robbertwohandedsworddialogs/dialog5.txt", "white");
 
-        coins.addCoins(20);    }
+        coins.addCoins(20);
+        winningGame.wonTheGame();
+    }
 }

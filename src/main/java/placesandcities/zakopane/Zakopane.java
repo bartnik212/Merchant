@@ -83,7 +83,7 @@ public class Zakopane implements ICitiesActions, ICitiesChecker {
 //        }
     }
 
-    private void getIronMerchantMethod() throws IOException {
+    private void getIronMerchantMethod() throws IOException, InterruptedException {
         ironMerchant.meetIronMerchant();
     }
 

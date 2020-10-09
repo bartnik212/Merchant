@@ -1,6 +1,7 @@
 package npc.gdansk;
 
 
+import gamewon.WinningGame;
 import model.Goods;
 import model.Player;
 import utilities.coinsutilities.Coins;
@@ -13,6 +14,7 @@ public class WoodMerchant {
 
     private String name;
 
+    private final WinningGame winningGame = new WinningGame();
     private final Player player = new Player();
     private final Coins coins = new Coins();
 
@@ -27,7 +29,7 @@ public class WoodMerchant {
     }
 
 
-    public void meetWoodMerchant() throws IOException {
+    public void meetWoodMerchant() throws IOException, InterruptedException {
         WoodMerchant woodMerchant = new WoodMerchant();
         woodMerchant.setName("Harold");
 
@@ -48,7 +50,7 @@ public class WoodMerchant {
         }
     }
 
-    public void yesOrNo() throws IOException {
+    public void yesOrNo() throws IOException, InterruptedException {
 
         Scanner scanner = new Scanner(System.in);
         String answer = scanner.nextLine();
@@ -63,11 +65,13 @@ public class WoodMerchant {
 
     }
 
-    private void positiveAnswer() throws IOException {
+    private void positiveAnswer() throws IOException, InterruptedException {
         player.getListOfGoods().remove(Goods.valueOf("WOOD"));
         coins.addCoins(20);
 
         dialogsUtilities.printDialog("src/main/resources/merchantsdialogs/woodmerchantdialogs/dialog3.txt", "white");
+        winningGame.wonTheGame();
+
     }
 
     private void negativeAnswer() throws IOException {

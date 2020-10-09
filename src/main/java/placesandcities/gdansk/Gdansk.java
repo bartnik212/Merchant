@@ -75,7 +75,7 @@ public class Gdansk implements ICitiesActions, ICitiesChecker {
     }
 
 
-    private void getWoodMerchantMethod() throws IOException {
+    private void getWoodMerchantMethod() throws IOException, InterruptedException {
         woodMerchant.meetWoodMerchant();
     }
 

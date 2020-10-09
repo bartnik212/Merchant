@@ -1,5 +1,6 @@
 package randomevent;
 
+import gamewon.WinningGame;
 import utilities.coinsutilities.Coins;
 import model.Goods;
 import model.Player;
@@ -15,14 +16,16 @@ import java.util.Random;
 
 public class RandomEvent {
 
+    private final Player player = new Player();
+
     private final RobberSwordShield robberSwordShield = new RobberSwordShield();
     private final RobberTwoHandedSword robberTwoHandedSword = new RobberTwoHandedSword();
     private final RobberFireArm robberFireArm = new RobberFireArm();
 
+    private final WinningGame winningGame = new WinningGame();
     private final Coins coins = new Coins();
-    private final Player player = new Player();
 
-    private static final Random random = new Random();
+    private final Random random = new Random();
 
     private final DialogsUtilities dialogsUtilities = new DialogsUtilities();
 
@@ -48,11 +51,13 @@ public class RandomEvent {
         }
     }
 
-    private void findPurseOfGold() throws IOException {
+    private void findPurseOfGold() throws IOException, InterruptedException {
 
         dialogsUtilities.printDialog("src/main/resources/randomeventsdialogs/dialog1.txt", "white");
 
         coins.addCoins(15);
+        winningGame.wonTheGame();
+
     }
 
 

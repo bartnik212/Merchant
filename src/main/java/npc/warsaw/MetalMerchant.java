@@ -1,5 +1,6 @@
 package npc.warsaw;
 
+import gamewon.WinningGame;
 import model.Goods;
 import model.Player;
 import utilities.coinsutilities.Coins;
@@ -13,6 +14,8 @@ public class MetalMerchant {
     private String name;
 
     private final Player player = new Player();
+
+    private final WinningGame winningGame = new WinningGame();
     private final Coins coins = new Coins();
     private final DialogsUtilities dialogsUtilities = new DialogsUtilities();
 
@@ -25,7 +28,7 @@ public class MetalMerchant {
     }
 
 
-    public void meetMetalMerchant() throws IOException {
+    public void meetMetalMerchant() throws IOException, InterruptedException {
         MetalMerchant metalMerchant = new MetalMerchant();
         metalMerchant.setName("Christopher");
 
@@ -45,7 +48,7 @@ public class MetalMerchant {
         }
     }
 
-    private void yesOrNo() throws IOException {
+    private void yesOrNo() throws IOException, InterruptedException {
         Scanner scanner = new Scanner(System.in);
         String answer = scanner.nextLine();
 
@@ -58,10 +61,13 @@ public class MetalMerchant {
         }
     }
 
-    private void positiveAnswer() throws IOException {
+    private void positiveAnswer() throws IOException, InterruptedException {
         player.getListOfGoods().remove(Goods.valueOf("METAL"));
         coins.addCoins(20);
+
         dialogsUtilities.printDialog("src/main/resources/merchantsdialogs/metalmerchantdialogs/dialog3.txt", "white");
+
+        winningGame.wonTheGame();
     }
 
     private void negativeAnswer() throws IOException {

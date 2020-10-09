@@ -86,7 +86,7 @@ public class Warsaw implements ICitiesActions, ICitiesChecker {
         }
     }
 
-    private void getMetalMerchantMethod() throws IOException {
+    private void getMetalMerchantMethod() throws IOException, InterruptedException {
         metalMerchant.meetMetalMerchant();
 
     }

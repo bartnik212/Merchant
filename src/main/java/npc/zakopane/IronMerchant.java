@@ -1,5 +1,6 @@
 package npc.zakopane;
 
+import gamewon.WinningGame;
 import model.Goods;
 import model.Player;
 import utilities.coinsutilities.Coins;
@@ -13,6 +14,8 @@ public class IronMerchant {
     private String name;
 
     private final Player player = new Player();
+
+    private final WinningGame winningGame = new WinningGame();
     private final Coins coins = new Coins();
     private final DialogsUtilities dialogsUtilities = new DialogsUtilities();
 
@@ -25,7 +28,7 @@ public class IronMerchant {
     }
 
 
-    public void meetIronMerchant() throws IOException {
+    public void meetIronMerchant() throws IOException, InterruptedException {
         IronMerchant ironMerchant = new IronMerchant();
         ironMerchant.setName("Frideric");
 
@@ -37,6 +40,7 @@ public class IronMerchant {
             dialogsUtilities.printDialog("src/main/resources/merchantsdialogs/ironmerchantdialogs/dialog1.txt", "yellow");
 
             yesOrNo();
+
         } else {
             dialogsUtilities.printDialog("src/main/resources/merchantsdialogs/ironmerchantdialogs/hello.txt", "yellow");
             System.out.println(ironMerchant.getName());
@@ -45,7 +49,7 @@ public class IronMerchant {
         }
     }
 
-    private void yesOrNo() throws IOException {
+    private void yesOrNo() throws IOException, InterruptedException {
         Scanner scanner = new Scanner(System.in);
         String answer = scanner.nextLine();
 
@@ -58,11 +62,13 @@ public class IronMerchant {
         }
     }
 
-    private void positiveAnswer() throws IOException {
+    private void positiveAnswer() throws IOException, InterruptedException {
         player.getListOfGoods().remove(Goods.valueOf("IRON"));
         coins.addCoins(20);
 
         dialogsUtilities.printDialog("src/main/resources/merchantsdialogs/ironmerchantdialogs/dialog3.txt", "white");
+
+        winningGame.wonTheGame();
 
     }
 

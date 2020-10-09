@@ -1,6 +1,7 @@
 package npc.warsaw;
 
 import checker.PlaceChecker;
+import gamewon.WinningGame;
 import utilities.additionalutilities.Additional;
 import utilities.dialogsutilities.DialogsUtilities;
 import utilities.healthutilities.Health;
