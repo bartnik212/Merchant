@@ -2,6 +2,7 @@ package npc.zakopane;
 
 import model.Goods;
 import model.Player;
+import utilities.coinsutilities.Coins;
 import utilities.dialogsutilities.DialogsUtilities;
 
 import java.io.IOException;
@@ -12,6 +13,7 @@ public class IronMerchant {
     private String name;
 
     private final Player player = new Player();
+    private final Coins coins = new Coins();
     private final DialogsUtilities dialogsUtilities = new DialogsUtilities();
 
     public String getName() {
@@ -58,9 +60,10 @@ public class IronMerchant {
 
     private void positiveAnswer() throws IOException {
         player.getListOfGoods().remove(Goods.valueOf("IRON"));
-        player.setCoins(player.getCoins() + 10);
+        coins.addCoins(20);
 
         dialogsUtilities.printDialog("src/main/resources/merchantsdialogs/ironmerchantdialogs/dialog3.txt", "white");
+
     }
 
     private void negativeAnswer() throws IOException {

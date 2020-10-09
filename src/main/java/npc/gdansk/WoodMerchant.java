@@ -3,6 +3,7 @@ package npc.gdansk;
 
 import model.Goods;
 import model.Player;
+import utilities.coinsutilities.Coins;
 import utilities.dialogsutilities.DialogsUtilities;
 
 import java.io.IOException;
@@ -13,6 +14,8 @@ public class WoodMerchant {
     private String name;
 
     private final Player player = new Player();
+    private final Coins coins = new Coins();
+
     private final DialogsUtilities dialogsUtilities = new DialogsUtilities();
 
     private String getName() {
@@ -62,7 +65,7 @@ public class WoodMerchant {
 
     private void positiveAnswer() throws IOException {
         player.getListOfGoods().remove(Goods.valueOf("WOOD"));
-        player.setCoins(player.getCoins() + 10);
+        coins.addCoins(20);
 
         dialogsUtilities.printDialog("src/main/resources/merchantsdialogs/woodmerchantdialogs/dialog3.txt", "white");
     }

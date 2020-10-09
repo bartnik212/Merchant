@@ -13,6 +13,7 @@ import utilities.weaponutilities.WeaponUtilities;
 import textcolor.ColorText;
 
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Zakopane implements ICitiesActions, ICitiesChecker {
@@ -25,8 +26,6 @@ public class Zakopane implements ICitiesActions, ICitiesChecker {
     private final SawmillWorkerSwordShield sawmillWorkerSwordShield = new SawmillWorkerSwordShield();
 
     private final ColorText colorText = new ColorText();
-    private final String textReset = colorText.TEXTRESET;
-
     private final DialogsUtilities dialogsUtilities = new DialogsUtilities();
     private final PlaceChecker placeChecker = new PlaceChecker();
 
@@ -34,43 +33,54 @@ public class Zakopane implements ICitiesActions, ICitiesChecker {
 
 
     @Override
-    public void cityAction() throws InterruptedException, IOException {
+    public void cityAction() throws IOException, InterruptedException {
+//        try {
 
-        dialogsUtilities.printDialog("src/main/resources/placesandcitiesdialogs/zakopanedialogs/dialog1.txt", "white");
+            dialogsUtilities.printDialog("src/main/resources/placesandcitiesdialogs/zakopanedialogs/dialog1.txt", "white");
 
-        int number;
-        do {
-            dialogsUtilities.printDialog("src/main/resources/placesandcitiesdialogs/zakopanedialogs/dialog2.txt", "blue");
+            int number;
+            do {
+                dialogsUtilities.printDialog("src/main/resources/placesandcitiesdialogs/zakopanedialogs/dialog2.txt", "blue");
+                number = scanner.nextInt();
+                scanner.next();
 
-            number = scanner.nextInt();
-            Zakopane zakopane = new Zakopane();
+                Zakopane zakopane = new Zakopane();
 
-            switch (number) {
-                case 1:
-                    zakopane.getIronMerchantMethod();
-                    continue;
-                case 2:
-                    ifEnoughMoneyGoToGubalowka();
-                    continue;
-                case 3:
-                    additional.ifEnoughMoneyChangeCity();
-                    continue;
-                case 4:
-                    randomEvent.generateRandomEvent();
-                    continue;
-                case 5:
-                    checkIfYouWereHere();
-                    continue;
-                case 6:
-                    weaponUtilities.buyWeapon();
-                    continue;
-                case 7:
-                    weaponUtilities.wearWeapon();
-                    continue;
-                case 8:
-                    additional.statusOfPlayer();
-            }
-        } while (number != 3);
+                switch (number) {
+                    case 1:
+                        zakopane.getIronMerchantMethod();
+                        continue;
+                    case 2:
+                        ifEnoughMoneyGoToGubalowka();
+                        continue;
+                    case 3:
+                        additional.ifEnoughMoneyChangeCity();
+                        continue;
+                    case 4:
+                        randomEvent.generateRandomEvent();
+                        continue;
+                    case 5:
+                        checkIfYouWereHere();
+                        continue;
+                    case 6:
+                        weaponUtilities.buyWeapon();
+                        continue;
+                    case 7:
+                        weaponUtilities.wearWeapon();
+                        continue;
+                    case 8:
+                        additional.statusOfPlayer();
+                        continue;
+                    default:
+                        System.out.println(colorText.RED + "You chose the wrong number. Try again." + colorText.TEXTRESET);
+                }
+
+            } while (number != 3);
+
+//        } catch (InputMismatchException e) {
+//            System.out.println(colorText.RED + "You have to enter the number. Try again." + colorText.WHITE);
+//            cityAction();
+//        }
     }
 
     private void getIronMerchantMethod() throws IOException {

@@ -35,7 +35,7 @@ public class RobberTwoHandedSword implements ICombatStyle {
         String answer = scanner.nextLine();
 
         if (answer.equalsIgnoreCase("m")) {
-            coins.clearCoins();
+            coins.stealCoins();
         } else {
             RobberTwoHandedSword rths = new RobberTwoHandedSword();
             rths.fight();
@@ -65,7 +65,7 @@ public class RobberTwoHandedSword implements ICombatStyle {
         dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robbertwohandedsworddialogs/dialog6.txt", "white");
         dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robbertwohandedsworddialogs/dialog7.txt", "yellow");
 
-        coins.clearCoins();
+        coins.stealCoins();
         health.deleteHealthPoints(40);
         additional.playerDiesIfBelow0();
 
@@ -75,6 +75,6 @@ public class RobberTwoHandedSword implements ICombatStyle {
     private void fireArmSelected() throws IOException {
         dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robbertwohandedsworddialogs/dialog4.txt", "yellow");
         dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robbertwohandedsworddialogs/dialog5.txt", "white");
-        player.setCoins(player.getCoins() + 10);
-    }
+
+        coins.addCoins(20);    }
 }

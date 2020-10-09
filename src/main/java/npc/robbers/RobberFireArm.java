@@ -7,7 +7,6 @@ import utilities.healthutilities.Health;
 import utilities.weaponutilities.WeaponUtilities;
 import combatStyle.ICombatStyle;
 import model.Player;
-import textcolor.ColorText;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -37,7 +36,7 @@ public class RobberFireArm implements ICombatStyle {
         String answer = scanner.nextLine();
 
         if (answer.equalsIgnoreCase("m")) {
-            coins.clearCoins();
+            coins.stealCoins();
         } else {
             RobberFireArm rfa = new RobberFireArm();
             rfa.fight();
@@ -66,13 +65,14 @@ public class RobberFireArm implements ICombatStyle {
     private void swordShieldSelected() throws IOException {
         dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robberfirearmdialogs/dialog4.txt", "yellow");
         dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robberfirearmdialogs/dialog5.txt", "white");
-        coins.addCoins(10);
+        coins.addCoins(20);
     }
 
     private void twoHandedSwordSelected() throws IOException {
         dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robberfirearmdialogs/dialog6.txt", "white");
         dialogsUtilities.printDialog("src/main/resources/robbersdialogs/robberfirearmdialogs/dialog7.txt", "yellow");
-        coins.clearCoins();
+
+        coins.stealCoins();
         health.deleteHealthPoints(40);
         additional.playerDiesIfBelow0();
 

@@ -2,6 +2,7 @@ package placesandcities.warsaw;
 
 import checker.PlaceChecker;
 import checker.ICitiesChecker;
+import textcolor.ColorText;
 import utilities.additionalutilities.Additional;
 import citiesActions.ICitiesActions;
 import model.Player;
@@ -24,6 +25,7 @@ public class Warsaw implements ICitiesActions, ICitiesChecker {
     private final IronWorksWorkerTwoHandedSword ironWorksWorkerTwoHandedSword = new IronWorksWorkerTwoHandedSword();
     private final RandomEvent randomEvent = new RandomEvent();
 
+    private final ColorText colorText = new ColorText();
     private final DialogsUtilities dialogsUtilities = new DialogsUtilities();
     private final PlaceChecker placeChecker = new PlaceChecker();
 
@@ -65,6 +67,9 @@ public class Warsaw implements ICitiesActions, ICitiesChecker {
                     continue;
                 case 8:
                     additional.statusOfPlayer();
+                    continue;
+                default:
+                    System.out.println(colorText.RED + "You chose the wrong number. Try again." + colorText.TEXTRESET);
 
             }
         } while (number != 3);

@@ -65,6 +65,10 @@ public class WeaponUtilities {
                     player.setWeapon(player.getListOfWeapon().get(2).toString());
                     showWeaponSelected();
                     break;
+                default:
+                    System.out.println(colorText.RED + "You have to type number. Try again");
+                    wearWeapon();
+
             }
         } catch (IndexOutOfBoundsException ex) {
             System.out.println(colorText.RED + "You chose the wrong number!" + colorText.TEXTRESET);
