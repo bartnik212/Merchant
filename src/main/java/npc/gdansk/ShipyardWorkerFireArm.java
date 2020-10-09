@@ -2,6 +2,7 @@ package npc.gdansk;
 
 import checker.PlaceChecker;
 import utilities.additionalutilities.Additional;
+import utilities.coinsutilities.Coins;
 import utilities.dialogsutilities.DialogsUtilities;
 import utilities.healthutilities.Health;
 import utilities.weaponutilities.WeaponUtilities;
@@ -18,7 +19,6 @@ public class ShipyardWorkerFireArm implements ICombatStyle {
     private final Player player = new Player();
     private final Health health = new Health();
     private final WeaponUtilities weaponUtilities = new WeaponUtilities();
-
     private final DialogsUtilities dialogsUtilities = new DialogsUtilities();
     private final PlaceChecker placeChecker = new PlaceChecker();
 

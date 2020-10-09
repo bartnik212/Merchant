@@ -21,7 +21,6 @@ public class Coins {
 
     public void addCoins(int amount) {
         player.setCoins(player.getCoins() + amount);
-
     }
 
 }

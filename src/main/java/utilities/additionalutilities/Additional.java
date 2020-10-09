@@ -105,8 +105,7 @@ public class Additional {
 
         if (player.getCoins() == 0) {
             System.out.println(red + "*You don't have enough money to change the city!*" + textReset);
-        } else {
-            additional.chooseCity();
         }
+        additional.chooseCity();
     }
 }

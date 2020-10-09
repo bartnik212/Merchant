@@ -45,7 +45,7 @@ public class WeaponUtilities {
     }
 
     public void wearWeapon() {
-        System.out.println("Weapon to choose: \n");
+        System.out.println(colorText.WHITE + "Weapon to choose: \n" + colorText.TEXTRESET);
         iterateYourWeapons();
         String weapon = scanner.nextLine();
 
