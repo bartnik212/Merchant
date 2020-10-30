@@ -51,6 +51,8 @@ public class WinningGame {
                     IOException | InterruptedException e) {
                 e.printStackTrace();
             }
+            System.exit(0);
         }
+
     }
 }

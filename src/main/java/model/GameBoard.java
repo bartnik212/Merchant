@@ -32,7 +32,7 @@ public class GameBoard {
         String name = scanner.nextLine();
         player.setName(name);
         health.fillHealthPoints();
-        coins.add20CoinsAtTheBeginning();
+        coins.add25CoinsAtTheBeginning();
 
         //WROC DO TEGO
         dialogs.printDialog("src/main/resources/initialdialogs/hello.txt", "green");

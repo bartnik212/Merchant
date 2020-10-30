@@ -13,7 +13,7 @@ public class Coins {
     private final Random random = new Random();
 
 
-    public void add20CoinsAtTheBeginning() {
+    public void add25CoinsAtTheBeginning() {
         player.setCoins(25);
         System.out.println("*25 coins added to your pouch*" );
     }

@@ -4,6 +4,7 @@ package npc.gdansk;
 import gamewon.WinningGame;
 import model.Goods;
 import model.Player;
+import placesandcities.gdansk.Gdansk;
 import utilities.coinsutilities.Coins;
 import utilities.dialogsutilities.DialogsUtilities;
 
@@ -66,16 +67,22 @@ public class WoodMerchant {
     }
 
     private void positiveAnswer() throws IOException, InterruptedException {
+        Gdansk gdansk = new Gdansk();
+
         player.getListOfGoods().remove(Goods.valueOf("WOOD"));
         coins.addCoins(20);
 
         dialogsUtilities.printDialog("src/main/resources/merchantsdialogs/woodmerchantdialogs/dialog3.txt", "white");
         winningGame.wonTheGame();
 
+        gdansk.cityAction();
+
+
     }
 
-    private void negativeAnswer() throws IOException {
+    private void negativeAnswer() throws IOException, InterruptedException {
         dialogsUtilities.printDialog("src/main/resources/merchantsdialogs/woodmerchantdialogs/dialog4.txt", "yellow");
+
     }
 }
 

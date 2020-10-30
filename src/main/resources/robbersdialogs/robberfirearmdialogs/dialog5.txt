@@ -1,4 +1,4 @@
 
 *You stab the robber with sword*
 
-*You defeated the robber and you gained 10 coins*
+*You defeated the robber and you gained 20 coins*
